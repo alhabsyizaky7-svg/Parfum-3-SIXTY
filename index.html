@@ -26,10 +26,6 @@
             -webkit-text-fill-color: transparent;
         }
 
-        .gold-border {
-            border-image: linear-gradient(to bottom, #bf953f, #332200) 1;
-        }
-
         .bg-gold-btn {
             background: linear-gradient(135deg, #bf953f 0%, #dfbd6c 50%, #aa771c 100%);
             transition: all 0.3s ease;
@@ -51,32 +47,20 @@
             box-shadow: 0 15px 30px rgba(191, 149, 63, 0.2);
         }
 
-        /* Animasi Slider Halus & Kontinu untuk Banner */
-        @keyframes slowSlide {
+        /* Animasi Menggeser Lambat & Halus untuk Banner 2 Hari Terakhir */
+        @keyframes slideContinuous {
             0% { transform: translateX(0); }
-            40% { transform: translateX(0); }
-            50% { transform: translateX(-105%); }
-            90% { transform: translateX(-105%); }
+            45% { transform: translateX(0); }
+            55% { transform: translateX(calc(-100% - 1rem)); }
+            95% { transform: translateX(calc(-100% - 1rem)); }
             100% { transform: translateX(0); }
         }
 
-        .banner-slider-container {
+        .slider-track {
             display: flex;
-            width: 100%;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .banner-track {
-            display: flex;
+            gap: 1rem;
             width: 200%;
-            animation: slowSlide 10s infinite ease-in-out;
-        }
-
-        .banner-item {
-            width: 50%;
-            flex-shrink: 0;
-            padding: 0 5px;
+            animation: slideContinuous 12s infinite ease-in-out;
         }
 
         @keyframes fadeIn {
@@ -91,40 +75,67 @@
 <body class="antialiased pb-24">
 
     <!-- Header / Logo Mewah -->
-    <header class="text-center pt-12 pb-8 px-4 relative">
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(191,149,63,0.08)_0%,transparent_70%)] pointer-events-none"></div>
+    <header class="text-center pt-12 pb-6 px-4 relative">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(191,149,63,0.1)_0%,transparent_70%)] pointer-events-none"></div>
         <div class="relative inline-block">
-            <div class="absolute -inset-1 rounded-full bg-gradient-to-r from-yellow-600 via-amber-300 to-yellow-700 blur opacity-50"></div>
+            <div class="absolute -inset-1 rounded-full bg-gradient-to-r from-yellow-600 via-amber-300 to-yellow-700 blur opacity-60"></div>
             <img src="84535.jpg" alt="3 SIXTY Logo" class="relative w-36 h-36 mx-auto rounded-full border-2 border-yellow-500 object-cover shadow-2xl">
         </div>
         <h1 class="text-4xl md:text-5xl font-bold mt-5 tracking-widest gold-gradient font-playfair">3 SIXTY</h1>
         <p class="text-gray-400 text-xs md:text-sm tracking-[0.3em] uppercase mt-2 font-medium">360° of Character Eau De Parfum</p>
     </header>
 
-    <!-- Banner Promosi Bergeser Kontinu & Elegan -->
-    <section class="max-w-2xl mx-auto px-4 mb-12">
-        <div class="bg-[#111] p-3 md:p-4 rounded-2xl border border-yellow-600/30 shadow-[0_0_30px_rgba(0,0,0,0.8)] relative">
-            <div class="banner-slider-container rounded-xl overflow-hidden">
-                <div class="banner-track">
-                    <!-- Foto 1: Special Launching -->
-                    <div class="banner-item flex justify-center">
-                        <img src="84536.png" alt="Special Launching" class="w-full max-h-[380px] object-contain rounded-lg">
-                    </div>
-                    <!-- Foto 2: 2 Hari Terakhir -->
-                    <div class="banner-item flex justify-center">
-                        <img src="85531.jpg" alt="2 Hari Terakhir Promo" class="w-full max-h-[380px] object-contain rounded-lg">
-                    </div>
+    <!-- Elemen Keunggulan / Value Proposition -->
+    <section class="max-w-4xl mx-auto px-4 mb-10">
+        <div class="grid grid-cols-3 gap-2 md:gap-4 text-center bg-[#111]/80 border border-yellow-600/30 p-4 rounded-2xl backdrop-blur-md shadow-lg">
+            <div class="border-r border-yellow-600/20 pr-2">
+                <p class="text-yellow-500 text-xs md:text-sm font-bold">💎 Aroma Pilihan</p>
+                <p class="text-[10px] md:text-xs text-gray-400 mt-0.5">Kualitas Internasional</p>
+            </div>
+            <div class="border-r border-yellow-600/20 px-2">
+                <p class="text-yellow-500 text-xs md:text-sm font-bold">🌿 Sehari-hari</p>
+                <p class="text-[10px] md:text-xs text-gray-400 mt-0.5">Segar & Nyaman</p>
+            </div>
+            <div class="pl-2">
+                <p class="text-yellow-500 text-xs md:text-sm font-bold">🎁 Lebih Hemat</p>
+                <p class="text-[10px] md:text-xs text-gray-400 mt-0.5">Promo Spesial</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Banner Utama & Slider Banner 2 Hari Terakhir -->
+    <section class="max-w-xl mx-auto px-4 mb-14">
+        <div class="space-y-6">
+            <!-- 1. Foto Utama: Special Launching (Statis & Elegan) -->
+            <div class="bg-[#121212] p-4 rounded-2xl border border-yellow-600/40 shadow-[0_0_25px_rgba(0,0,0,0.9)] relative overflow-hidden">
+                <div class="absolute top-3 right-3 bg-yellow-600 text-black text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full z-10 shadow">Special Launching</div>
+                <div class="overflow-hidden rounded-xl">
+                    <img src="84536.png" alt="Special Launching" class="w-full max-h-[380px] object-contain mx-auto transition duration-500 hover:scale-105">
                 </div>
             </div>
 
-            <!-- Teks Promo Eksklusif -->
-            <div class="text-center mt-5 bg-gradient-to-r from-red-950/40 via-red-900/50 to-red-950/40 border border-red-500/40 p-4 rounded-xl shadow-inner">
-                <span class="inline-block bg-red-600 text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full mb-1">Limited Offer</span>
-                <p class="text-xl font-bold text-yellow-400 font-playfair">PROMO SPESIAL LAUNCHING</p>
-                <p class="text-base mt-1 text-gray-200">Harga Spesial: <span class="line-through text-gray-400 text-sm">Rp 45.000</span> <span class="font-bold text-2xl text-white ml-2 gold-gradient">Rp 40.000</span></p>
-                <div class="flex items-center justify-center gap-1.5 mt-2 text-yellow-300 text-xs font-semibold">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16"><path d="M8 .956C4.692 1.693 2 4.385 2 8s2.692 6.307 6 7.044V.956zM8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0-11a4 4 0 1 1 0 8 4 4 0 0 1 0-8z"/></svg>
-                    Berlaku sampai dengan tanggal 12
+            <!-- 2. Banner Geser: Khusus 2 Hari Terakhir (Bergeser Kontinu Otomatis) -->
+            <div class="bg-[#121212] p-4 rounded-2xl border border-red-500/40 shadow-[0_0_25px_rgba(0,0,0,0.9)] relative overflow-hidden">
+                <div class="absolute top-3 right-3 bg-red-600 text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full z-10 shadow animate-pulse">Berakhir Segera</div>
+                
+                <div class="overflow-hidden rounded-xl w-full">
+                    <div class="slider-track">
+                        <!-- Tampilan Foto 2 Hari Terakhir 1 -->
+                        <div class="w-full flex-shrink-0">
+                            <img src="85531.jpg" alt="2 Hari Terakhir Promo" class="w-full max-h-[380px] object-contain mx-auto rounded-lg">
+                        </div>
+                        <!-- Tampilan Foto 2 Hari Terakhir 2 (Duplikat untuk efek geser mulus tanpa jeda) -->
+                        <div class="w-full flex-shrink-0">
+                            <img src="85531.jpg" alt="2 Hari Terakhir Promo" class="w-full max-h-[380px] object-contain mx-auto rounded-lg">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Teks Promo Harga -->
+                <div class="text-center mt-4 bg-gradient-to-r from-red-950/40 via-red-900/50 to-red-950/40 border border-red-500/40 p-3.5 rounded-xl">
+                    <p class="text-lg font-bold text-yellow-400 font-playfair">PROMO SPESIAL</p>
+                    <p class="text-sm mt-0.5 text-gray-200">Harga Diskon: <span class="line-through text-gray-400 text-xs">Rp 45.000</span> <span class="font-bold text-xl text-white ml-2 gold-gradient">Rp 40.000</span></p>
+                    <p class="text-xs text-yellow-300 mt-1 font-semibold">Berlaku sampai dengan tanggal 12</p>
                 </div>
             </div>
         </div>
@@ -133,11 +144,10 @@
     <!-- Kategori Men -->
     <section class="max-w-5xl mx-auto px-4 mb-16">
         <div class="text-center mb-10">
-            <span class="text-yellow-500 uppercase tracking-widest text-xs font-semibold block mb-1">Eksklusif Pria</span>
+            <span class="text-yellow-500 uppercase tracking-widest text-xs font-semibold block mb-1">Koleksi Eksklusif</span>
             <h2 class="text-3xl md:text-4xl font-playfair font-bold gold-gradient inline-block border-b border-yellow-600/50 pb-2">MEN'S COLLECTION</h2>
         </div>
         
-        <!-- Grid 2 Kolom (HP) & 4 Kolom (Laptop) -->
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             <!-- AR-ONE -->
             <div class="product-card rounded-xl overflow-hidden flex flex-col cursor-pointer group" onclick="openLightbox('84532.png', 'AR-ONE', 'Fresh, maskulin, spicy, elegan', 'Men')">
@@ -264,7 +274,7 @@
     <!-- Kategori Women -->
     <section class="max-w-5xl mx-auto px-4 mb-20">
         <div class="text-center mb-10">
-            <span class="text-yellow-500 uppercase tracking-widest text-xs font-semibold block mb-1">Eksklusif Wanita</span>
+            <span class="text-yellow-500 uppercase tracking-widest text-xs font-semibold block mb-1">Koleksi Eksklusif</span>
             <h2 class="text-3xl md:text-4xl font-playfair font-bold gold-gradient inline-block border-b border-yellow-600/50 pb-2">WOMEN'S COLLECTION</h2>
         </div>
         
