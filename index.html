@@ -11,7 +11,7 @@
             font-family: 'Poppins', sans-serif;
             background-color: #0a0a0a;
             color: #ffffff;
-            scroll-behavior: smooth; /* Efek scroll halus saat klik foto */
+            scroll-behavior: smooth;
         }
         h1, h2, h3, .font-playfair {
             font-family: 'Playfair Display', serif;
@@ -27,6 +27,19 @@
         .product-card {
             background-color: #1a1a1a;
             border: 1px solid #333;
+            transition: all 0.3s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            border-color: #bf953f;
+            box-shadow: 0 10px 20px rgba(191, 149, 63, 0.15);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.3s ease-out forwards;
         }
     </style>
 </head>
@@ -34,18 +47,22 @@
 
     <!-- Header / Logo -->
     <header class="text-center pt-10 pb-6 px-4">
-        <img src="84535.jpg" alt="3 SIXTY Logo" class="w-32 h-32 mx-auto rounded-full border-2 border-yellow-500 object-cover shadow-[0_0_15px_rgba(252,246,186,0.5)]">
+        <img src="84535.jpg" alt="3 SIXTY Logo" class="w-32 h-32 mx-auto rounded-full border-2 border-yellow-500 object-cover shadow-[0_0_15px_rgba(252,246,186,0.5)] transition duration-500 hover:scale-105">
         <h1 class="text-4xl font-bold mt-4 tracking-wider gold-gradient">3 SIXTY</h1>
         <p class="text-gray-400 text-sm tracking-widest uppercase mt-2">360° of Character</p>
     </header>
 
-    <!-- Special Launching Banners (Diperkecil dengan max-w-sm dan max-w-md) -->
-    <section class="max-w-md mx-auto px-4 mb-10">
-        <div class="flex flex-col gap-5">
-            <img src="84536.png" alt="Special Launching Promo" class="w-full rounded-lg shadow-lg border border-yellow-600/30">
-            <img src="85531.jpg" alt="Promo Harga Spesial" class="w-full rounded-lg shadow-lg border border-yellow-600/30">
+    <!-- Special Launching Banners (Bersebelahan & Berukuran Sedang) -->
+    <section class="max-w-4xl mx-auto px-4 mb-10">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-center justify-center">
+            <div class="overflow-hidden rounded-lg shadow-lg border border-yellow-600/30 transition duration-300 hover:scale-[1.02]">
+                <img src="84536.png" alt="Special Launching Promo" class="w-full h-auto object-cover">
+            </div>
+            <div class="overflow-hidden rounded-lg shadow-lg border border-yellow-600/30 transition duration-300 hover:scale-[1.02]">
+                <img src="85531.jpg" alt="Promo Harga Spesial" class="w-full h-auto object-cover">
+            </div>
         </div>
-        <div class="text-center mt-6 bg-red-900/30 border border-red-500/50 p-4 rounded-lg">
+        <div class="text-center mt-6 bg-red-900/30 border border-red-500/50 p-4 rounded-lg max-w-xl mx-auto shadow-lg">
             <p class="text-xl font-bold text-yellow-500 mb-1">PROMO SPESIAL!</p>
             <p class="text-lg">Harga Diskon: <span class="line-through text-gray-400 text-sm">Rp 45.000</span> <span class="font-bold text-2xl text-white ml-1">Rp 40.000</span></p>
             <p class="text-sm text-yellow-300 mt-2 font-medium">Berlaku sampai dengan tanggal 12</p>
@@ -61,13 +78,13 @@
         <!-- Grid 2 Kolom untuk Produk -->
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
             <!-- AR-ONE -->
-            <div class="product-card rounded-lg overflow-hidden flex flex-col transition duration-300 hover:border-yellow-500">
-                <a href="#order-section" class="block overflow-hidden relative group" onclick="pilihParfum('Men', 'AR-ONE (Fresh, maskulin, spicy)')">
-                    <img src="84532.png" alt="AR-ONE" class="w-full aspect-square object-cover transition duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
-                        <span class="bg-yellow-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">Pesan Sekarang</span>
+            <div class="product-card rounded-lg overflow-hidden flex flex-col cursor-pointer" onclick="openLightbox('84532.png', 'AR-ONE', 'Fresh, maskulin, spicy, elegan', 'Men')">
+                <div class="overflow-hidden relative group aspect-square">
+                    <img src="84532.png" alt="AR-ONE" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                        <span class="bg-yellow-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">Lihat Detail</span>
                     </div>
-                </a>
+                </div>
                 <div class="p-3 flex-grow flex flex-col justify-between">
                     <div>
                         <h3 class="text-lg font-bold text-yellow-500">AR-ONE</h3>
@@ -77,13 +94,13 @@
             </div>
 
             <!-- BLACK CODE -->
-            <div class="product-card rounded-lg overflow-hidden flex flex-col transition duration-300 hover:border-yellow-500">
-                <a href="#order-section" class="block overflow-hidden relative group" onclick="pilihParfum('Men', 'BLACK CODE (Fresh, spicy, misterius)')">
-                    <img src="84533.png" alt="BLACK CODE" class="w-full aspect-square object-cover transition duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
-                        <span class="bg-yellow-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">Pesan Sekarang</span>
+            <div class="product-card rounded-lg overflow-hidden flex flex-col cursor-pointer" onclick="openLightbox('84533.png', 'BLACK CODE', 'Fresh, spicy, warm, misterius', 'Men')">
+                <div class="overflow-hidden relative group aspect-square">
+                    <img src="84533.png" alt="BLACK CODE" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                        <span class="bg-yellow-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">Lihat Detail</span>
                     </div>
-                </a>
+                </div>
                 <div class="p-3 flex-grow flex flex-col justify-between">
                     <div>
                         <h3 class="text-lg font-bold text-yellow-500">BLACK CODE</h3>
@@ -93,13 +110,13 @@
             </div>
 
             <!-- MEN'S CLUB -->
-            <div class="product-card rounded-lg overflow-hidden flex flex-col transition duration-300 hover:border-yellow-500">
-                <a href="#order-section" class="block overflow-hidden relative group" onclick="pilihParfum('Men', 'MEN\'S CLUB (Fresh, clean, manly)')">
-                    <img src="85009.jpg" alt="MEN'S CLUB" class="w-full aspect-square object-cover transition duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
-                        <span class="bg-yellow-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">Pesan Sekarang</span>
+            <div class="product-card rounded-lg overflow-hidden flex flex-col cursor-pointer" onclick="openLightbox('85009.jpg', 'MEN\'S CLUB', 'Fresh, clean, manly, sedikit manis', 'Men')">
+                <div class="overflow-hidden relative group aspect-square">
+                    <img src="85009.jpg" alt="MEN'S CLUB" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                        <span class="bg-yellow-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">Lihat Detail</span>
                     </div>
-                </a>
+                </div>
                 <div class="p-3 flex-grow flex flex-col justify-between">
                     <div>
                         <h3 class="text-lg font-bold text-yellow-500 text-sm md:text-lg truncate">MEN'S CLUB</h3>
@@ -109,13 +126,13 @@
             </div>
 
             <!-- ROYAL MAN -->
-            <div class="product-card rounded-lg overflow-hidden flex flex-col transition duration-300 hover:border-yellow-500">
-                <a href="#order-section" class="block overflow-hidden relative group" onclick="pilihParfum('Men', 'ROYAL MAN (Fresh, elegant, woody)')">
-                    <img src="85004.jpg" alt="ROYAL MAN" class="w-full aspect-square object-cover transition duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
-                        <span class="bg-yellow-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">Pesan Sekarang</span>
+            <div class="product-card rounded-lg overflow-hidden flex flex-col cursor-pointer" onclick="openLightbox('85004.jpg', 'ROYAL MAN', 'Fresh, elegant, clean, woody', 'Men')">
+                <div class="overflow-hidden relative group aspect-square">
+                    <img src="85004.jpg" alt="ROYAL MAN" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                        <span class="bg-yellow-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">Lihat Detail</span>
                     </div>
-                </a>
+                </div>
                 <div class="p-3 flex-grow flex flex-col justify-between">
                     <div>
                         <h3 class="text-lg font-bold text-yellow-500 text-sm md:text-lg truncate">ROYAL MAN</h3>
@@ -125,13 +142,13 @@
             </div>
             
             <!-- RS-ONE -->
-            <div class="product-card rounded-lg overflow-hidden flex flex-col transition duration-300 hover:border-yellow-500">
-                <a href="#order-section" class="block overflow-hidden relative group" onclick="pilihParfum('Men', 'RS-ONE (Fruity, fresh, smoky)')">
-                    <img src="85013.jpg" alt="RS-ONE" class="w-full aspect-square object-cover transition duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
-                        <span class="bg-yellow-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">Pesan Sekarang</span>
+            <div class="product-card rounded-lg overflow-hidden flex flex-col cursor-pointer" onclick="openLightbox('85013.jpg', 'RS-ONE', 'Fruity, fresh, smoky, woody', 'Men')">
+                <div class="overflow-hidden relative group aspect-square">
+                    <img src="85013.jpg" alt="RS-ONE" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                        <span class="bg-yellow-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">Lihat Detail</span>
                     </div>
-                </a>
+                </div>
                 <div class="p-3 flex-grow flex flex-col justify-between">
                     <div>
                         <h3 class="text-lg font-bold text-yellow-500">RS-ONE</h3>
@@ -141,13 +158,13 @@
             </div>
 
              <!-- SIGNATURE -->
-             <div class="product-card rounded-lg overflow-hidden flex flex-col transition duration-300 hover:border-yellow-500">
-                <a href="#order-section" class="block overflow-hidden relative group" onclick="pilihParfum('Men', 'SIGNATURE (Baccarat Rouge 540 x Creed Aventus)')">
-                    <img src="85498.jpg" alt="SIGNATURE" class="w-full aspect-square object-cover transition duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
-                        <span class="bg-yellow-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">Pesan Sekarang</span>
+             <div class="product-card rounded-lg overflow-hidden flex flex-col cursor-pointer" onclick="openLightbox('85498.jpg', 'SIGNATURE', 'Baccarat Rouge 540 x Creed Aventus', 'Men')">
+                <div class="overflow-hidden relative group aspect-square">
+                    <img src="85498.jpg" alt="SIGNATURE" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                        <span class="bg-yellow-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">Lihat Detail</span>
                     </div>
-                </a>
+                </div>
                 <div class="p-3 flex-grow flex flex-col justify-between">
                     <div>
                         <h3 class="text-lg font-bold text-yellow-500">SIGNATURE</h3>
@@ -166,13 +183,13 @@
         
         <div class="grid grid-cols-2 md:grid-cols-3 gap-4 justify-center">
             <!-- WHITE ORCHID -->
-            <div class="product-card rounded-lg overflow-hidden flex flex-col transition duration-300 hover:border-yellow-500">
-                <a href="#order-section" class="block overflow-hidden relative group" onclick="pilihParfum('Women', 'WHITE ORCHID (Floral, oriental, sensual)')">
-                    <img src="84537.png" alt="WHITE ORCHID" class="w-full aspect-square object-cover transition duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
-                        <span class="bg-yellow-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">Pesan Sekarang</span>
+            <div class="product-card rounded-lg overflow-hidden flex flex-col cursor-pointer" onclick="openLightbox('84537.png', 'WHITE ORCHID', 'Floral, oriental, warm, sensual', 'Women')">
+                <div class="overflow-hidden relative group aspect-square">
+                    <img src="84537.png" alt="WHITE ORCHID" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                        <span class="bg-yellow-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">Lihat Detail</span>
                     </div>
-                </a>
+                </div>
                 <div class="p-3 flex-grow flex flex-col justify-between">
                     <div>
                         <h3 class="text-lg font-bold text-yellow-500 text-sm md:text-lg truncate">WHITE ORCHID</h3>
@@ -182,13 +199,13 @@
             </div>
 
             <!-- LADY CHARM -->
-            <div class="product-card rounded-lg overflow-hidden flex flex-col transition duration-300 hover:border-yellow-500">
-                <a href="#order-section" class="block overflow-hidden relative group" onclick="pilihParfum('Women', 'LADY CHARM (Fresh, fruity, playful)')">
-                    <img src="84534.png" alt="LADY CHARM" class="w-full aspect-square object-cover transition duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
-                        <span class="bg-yellow-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">Pesan Sekarang</span>
+            <div class="product-card rounded-lg overflow-hidden flex flex-col cursor-pointer" onclick="openLightbox('84534.png', 'LADY CHARM', 'Fresh, fruity, floral, playful', 'Women')">
+                <div class="overflow-hidden relative group aspect-square">
+                    <img src="84534.png" alt="LADY CHARM" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                        <span class="bg-yellow-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">Lihat Detail</span>
                     </div>
-                </a>
+                </div>
                 <div class="p-3 flex-grow flex flex-col justify-between">
                     <div>
                         <h3 class="text-lg font-bold text-yellow-500 text-sm md:text-lg truncate">LADY CHARM</h3>
@@ -196,9 +213,23 @@
                     </div>
                 </div>
             </div>
-            
         </div>
     </section>
+
+    <!-- Modal Lightbox (Tampilan Foto Jelas) -->
+    <div id="lightboxModal" class="fixed inset-0 bg-black/90 z-50 hidden items-center justify-center p-4">
+        <div class="bg-[#151515] border border-yellow-600/40 rounded-xl max-w-lg w-full p-5 relative animate-fade-in shadow-2xl">
+            <button onclick="closeLightbox()" class="absolute top-3 right-3 text-gray-400 hover:text-white text-2xl font-bold">&times;</button>
+            <div class="text-center">
+                <img id="lightboxImg" src="" alt="Detail Parfum" class="w-full max-h-[350px] object-contain rounded-lg mb-4 border border-gray-800">
+                <h3 id="lightboxTitle" class="text-2xl font-playfair font-bold text-yellow-500 mb-1"></h3>
+                <p id="lightboxDesc" class="text-sm text-gray-300 mb-6"></p>
+                <button id="lightboxOrderBtn" onclick="" class="w-full bg-gold text-black font-bold py-3 rounded-lg hover:opacity-90 transition shadow-lg">
+                    Pesan Varian Ini
+                </button>
+            </div>
+        </div>
+    </div>
 
     <!-- Formulir Pemesanan -->
     <section class="max-w-md mx-auto px-4 mb-20" id="order-section">
@@ -273,7 +304,6 @@
             const kategori = document.getElementById("kategori").value;
             const aromaSelect = document.getElementById("aroma");
             
-            // Bersihkan opsi saat ini
             aromaSelect.innerHTML = "";
             
             if (kategori && aromaOptions[kategori]) {
@@ -293,18 +323,45 @@
             }
         }
 
-        // Fungsi khusus saat foto diklik
+        // Fungsi membuka Lightbox Foto Detail
+        function openLightbox(imgSrc, title, desc, kategoriVal) {
+            document.getElementById("lightboxImg").src = imgSrc;
+            document.getElementById("lightboxTitle").textContent = title;
+            document.getElementById("lightboxDesc").textContent = desc;
+            
+            const fullAromaName = title + " (" + desc + ")";
+            
+            // Set tombol pesan di lightbox agar otomatis memilih parfum saat diklik
+            const btn = document.getElementById("lightboxOrderBtn");
+            btn.onclick = function() {
+                closeLightbox();
+                pilihParfum(kategoriVal, fullAromaName);
+            };
+
+            const modal = document.getElementById("lightboxModal");
+            modal.classList.remove("hidden");
+            modal.classList.add("flex");
+        }
+
+        function closeLightbox() {
+            const modal = document.getElementById("lightboxModal");
+            modal.classList.remove("flex");
+            modal.classList.add("hidden");
+        }
+
+        // Fungsi otomatis isi form saat pilih dari lightbox
         function pilihParfum(kategoriVal, aromaVal) {
             const kategoriSelect = document.getElementById("kategori");
             kategoriSelect.value = kategoriVal;
             
-            // Perbarui daftar aroma sesuai kategori
             updateAromaOptions();
             
-            // Set aroma yang dipilih dengan jeda sedikit agar dropdown siap
             setTimeout(() => {
                 document.getElementById("aroma").value = aromaVal;
             }, 50);
+
+            // Scroll mulus ke formulir
+            document.getElementById("order-section").scrollIntoView({ behavior: 'smooth' });
         }
 
         document.getElementById('orderForm').addEventListener('submit', function(e) {
@@ -315,13 +372,11 @@
             const aroma = document.getElementById('aroma').value;
             const jumlah = document.getElementById('jumlah').value;
             
-            // Hitung harga (promo Rp 40.000)
             const harga = 40000;
             const total = harga * jumlah;
             
             const textWa = `Halo 3 SIXTY, saya ingin memesan parfum:%0A%0ANama: ${nama}%0AAlamat: ${alamat}%0AVarian: ${aroma}%0AJumlah: ${jumlah} Botol%0ATotal Harga: Rp ${total.toLocaleString('id-ID')}%0A%0AMohon info pembayarannya. Terima kasih!`;
             
-            // Nomor WhatsApp tujuan 
             const nomorWa = '62895353844848';
             
             window.open(`https://wa.me/${nomorWa}?text=${textWa}`, '_blank');
