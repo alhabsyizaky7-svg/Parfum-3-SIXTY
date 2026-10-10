@@ -103,15 +103,24 @@
                 </div>
             </div>
             
-            <!-- RS-ONE (Placeholder Image, karena tidak ada gambar spesifik) -->
-            <div class="product-card rounded-lg overflow-hidden flex flex-col col-span-2 md:col-span-2 mx-auto w-full max-w-[200px] md:max-w-none">
-                <div class="bg-gray-800 w-full aspect-square flex items-center justify-center">
-                    <span class="text-gray-500 text-xs">Image RS-ONE</span>
-                </div>
+            <!-- RS-ONE -->
+            <div class="product-card rounded-lg overflow-hidden flex flex-col">
+                <img src="85013.jpg" alt="RS-ONE" class="w-full aspect-square object-cover">
                 <div class="p-3 flex-grow flex flex-col justify-between">
                     <div>
-                        <h3 class="text-lg font-bold text-yellow-500 text-center">RS-ONE</h3>
-                        <p class="text-xs text-gray-300 mt-1 text-center">Fruity, fresh, smoky, woody</p>
+                        <h3 class="text-lg font-bold text-yellow-500">RS-ONE</h3>
+                        <p class="text-xs text-gray-300 mt-1">Fruity, fresh, smoky, woody</p>
+                    </div>
+                </div>
+            </div>
+
+             <!-- SIGNATURE -->
+             <div class="product-card rounded-lg overflow-hidden flex flex-col">
+                <img src="85498.jpg" alt="SIGNATURE" class="w-full aspect-square object-cover">
+                <div class="p-3 flex-grow flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-lg font-bold text-yellow-500">SIGNATURE</h3>
+                        <p class="text-xs text-gray-300 mt-1">Baccarat Rouge 540 x Creed Aventus</p>
                     </div>
                 </div>
             </div>
@@ -147,11 +156,11 @@
                 </div>
             </div>
             
-            <!-- BELLA (Placeholder Image) -->
-            <div class="product-card rounded-lg overflow-hidden flex flex-col col-span-2 md:col-span-1 max-w-[50%] md:max-w-none mx-auto w-full">
-                <div class="bg-gray-800 w-full aspect-square flex items-center justify-center">
-                    <span class="text-gray-500 text-xs">Image BELLA</span>
-                </div>
+            <!-- BELLA (Karena tidak ada foto, saya sembunyikan kotak abunya agar rapi) -->
+            <!-- Jika nanti Anda punya fotonya, hapus tanda komentar ini dan ubah src-nya -->
+            <!--
+            <div class="product-card rounded-lg overflow-hidden flex flex-col">
+                <img src="nama-foto-bella.jpg" alt="BELLA" class="w-full aspect-square object-cover">
                 <div class="p-3 flex-grow flex flex-col justify-between">
                     <div>
                         <h3 class="text-lg font-bold text-yellow-500 text-center">BELLA</h3>
@@ -159,6 +168,7 @@
                     </div>
                 </div>
             </div>
+            -->
         </div>
     </section>
 
@@ -219,6 +229,7 @@
             "Men": [
                 "AR-ONE (Fresh, maskulin, spicy)", 
                 "RS-ONE (Fruity, fresh, smoky)", 
+                "SIGNATURE (Baccarat Rouge 540 x Creed Aventus)",
                 "MEN'S CLUB (Fresh, clean, manly)", 
                 "BLACK CODE (Fresh, spicy, misterius)", 
                 "ROYAL MAN (Fresh, elegant, woody)"
