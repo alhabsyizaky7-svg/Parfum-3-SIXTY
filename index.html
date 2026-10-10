@@ -47,20 +47,15 @@
             box-shadow: 0 15px 30px rgba(191, 149, 63, 0.2);
         }
 
-        /* Animasi Menggeser Lambat & Halus untuk Banner 2 Hari Terakhir */
-        @keyframes slideContinuous {
-            0% { transform: translateX(0); }
-            45% { transform: translateX(0); }
-            55% { transform: translateX(calc(-100% - 1rem)); }
-            95% { transform: translateX(calc(-100% - 1rem)); }
-            100% { transform: translateX(0); }
+        /* Animasi bergerak halus di tempat (tanpa bergeser menyamping) */
+        @keyframes gentleMove {
+            0% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-4px) scale(1.01); }
+            100% { transform: translateY(0px) scale(1); }
         }
 
-        .slider-track {
-            display: flex;
-            gap: 1rem;
-            width: 200%;
-            animation: slideContinuous 12s infinite ease-in-out;
+        .animated-banner {
+            animation: gentleMove 5s infinite ease-in-out;
         }
 
         @keyframes fadeIn {
@@ -103,32 +98,23 @@
         </div>
     </section>
 
-    <!-- Banner Utama & Slider Banner 2 Hari Terakhir -->
+    <!-- Banner Utama & Banner 2 Hari Terakhir (Ukuran Sama & Animasi Elegan) -->
     <section class="max-w-xl mx-auto px-4 mb-14">
         <div class="space-y-6">
-            <!-- 1. Foto Utama: Special Launching (Statis & Elegan) -->
+            <!-- 1. Foto Utama: Special Launching (Statis & Rapi) -->
             <div class="bg-[#121212] p-4 rounded-2xl border border-yellow-600/40 shadow-[0_0_25px_rgba(0,0,0,0.9)] relative overflow-hidden">
                 <div class="absolute top-3 right-3 bg-yellow-600 text-black text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full z-10 shadow">Special Launching</div>
                 <div class="overflow-hidden rounded-xl">
-                    <img src="84536.png" alt="Special Launching" class="w-full max-h-[380px] object-contain mx-auto transition duration-500 hover:scale-105">
+                    <img src="84536.png" alt="Special Launching" class="w-full h-[320px] object-cover mx-auto rounded-lg transition duration-500 hover:scale-105">
                 </div>
             </div>
 
-            <!-- 2. Banner Geser: Khusus 2 Hari Terakhir (Bergeser Kontinu Otomatis) -->
+            <!-- 2. Banner Kedua: 2 Hari Terakhir (Ukuran Sama, Animasi Bergerak di Tempat) -->
             <div class="bg-[#121212] p-4 rounded-2xl border border-red-500/40 shadow-[0_0_25px_rgba(0,0,0,0.9)] relative overflow-hidden">
                 <div class="absolute top-3 right-3 bg-red-600 text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full z-10 shadow animate-pulse">Berakhir Segera</div>
                 
-                <div class="overflow-hidden rounded-xl w-full">
-                    <div class="slider-track">
-                        <!-- Tampilan Foto 2 Hari Terakhir 1 -->
-                        <div class="w-full flex-shrink-0">
-                            <img src="85531.jpg" alt="2 Hari Terakhir Promo" class="w-full max-h-[380px] object-contain mx-auto rounded-lg">
-                        </div>
-                        <!-- Tampilan Foto 2 Hari Terakhir 2 (Duplikat untuk efek geser mulus tanpa jeda) -->
-                        <div class="w-full flex-shrink-0">
-                            <img src="85531.jpg" alt="2 Hari Terakhir Promo" class="w-full max-h-[380px] object-contain mx-auto rounded-lg">
-                        </div>
-                    </div>
+                <div class="overflow-hidden rounded-xl">
+                    <img src="85531.jpg" alt="2 Hari Terakhir Promo" class="w-full h-[320px] object-cover mx-auto rounded-lg animated-banner">
                 </div>
 
                 <!-- Teks Promo Harga -->
