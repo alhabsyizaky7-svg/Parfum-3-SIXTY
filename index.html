@@ -49,33 +49,28 @@
             box-shadow: 0 20px 40px rgba(191, 149, 63, 0.25);
         }
 
-        /* Intro Overlay dengan Animasi Menyeluruh */
+        /* Intro Overlay Center Fix & Animasi Menyeluruh */
         #intro-overlay {
             position: fixed;
             inset: 0;
             background: radial-gradient(circle at center, #261f12 0%, #0c0a07 60%, #030303 100%);
             z-index: 100;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
             transition: opacity 1s ease, visibility 1s ease;
             overflow: hidden;
         }
 
-        /* Efek partikel cahaya latar belakang intro */
-        #intro-overlay::before {
-            content: '';
-            position: absolute;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(191,149,63,0.15) 0%, transparent 70%);
-            animation: pulseGlow 4s infinite alternate ease-in-out;
-        }
-
-        @keyframes pulseGlow {
-            0% { transform: scale(0.8); opacity: 0.5; }
-            100% { transform: scale(1.2); opacity: 1; }
+        .intro-box {
+            text-align: center;
+            width: 100%;
+            max-width: 500px;
+            padding: 0 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
         @keyframes introLogoAnim {
@@ -130,9 +125,9 @@
 </head>
 <body class="antialiased pb-24">
 
-    <!-- INTRO ANIMASI MENYELURUH -->
+    <!-- INTRO ANIMASI MENYELURUH (DI TENGAH) -->
     <div id="intro-overlay">
-        <div class="intro-content text-center px-4 relative z-10">
+        <div class="intro-box">
             <div class="relative inline-block mb-6 anim-logo">
                 <div class="absolute -inset-4 rounded-full bg-gradient-to-r from-yellow-600 via-amber-300 to-yellow-700 blur-2xl opacity-70 animate-pulse"></div>
                 <img src="84535.jpg" alt="3 SIXTY Logo" class="relative w-40 h-40 mx-auto rounded-full border-2 border-yellow-500 object-cover shadow-2xl">
@@ -183,14 +178,14 @@
         </div>
     </section>
 
-    <!-- Banner Utama & Banner 2 Hari Terakhir -->
+    <!-- Banner Foto Botol Utama & Promo -->
     <section class="max-w-xl mx-auto px-4 mb-16">
         <div class="space-y-8">
-            <!-- 1. Foto Utama: Special Launching -->
+            <!-- 1. Foto Botol Utama (Menggunakan botol-utama.jpg yang baru) -->
             <div class="bg-[#12100c] p-4 rounded-2xl border border-yellow-600/40 shadow-[0_0_30px_rgba(0,0,0,0.9)] relative overflow-hidden group">
-                <div class="absolute top-3 right-3 bg-yellow-600 text-black text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full z-10 shadow">Special Launching</div>
-                <div class="overflow-hidden rounded-xl">
-                    <img src="84536.png" alt="Special Launching" class="w-full h-[320px] object-cover mx-auto rounded-lg transition duration-700 group-hover:scale-105">
+                <div class="absolute top-3 right-3 bg-yellow-600 text-black text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full z-10 shadow">Signature Bottle</div>
+                <div class="overflow-hidden rounded-xl bg-white p-2">
+                    <img src="botol-utama.jpg" alt="3 SIXTY Eau De Parfum" class="w-full h-auto max-h-[380px] object-contain mx-auto rounded-lg transition duration-700 group-hover:scale-105">
                 </div>
             </div>
 
@@ -198,8 +193,8 @@
             <div class="bg-[#12100c] p-4 rounded-2xl border border-red-500/40 shadow-[0_0_30px_rgba(0,0,0,0.9)] relative overflow-hidden">
                 <div class="absolute top-3 right-3 bg-red-600 text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full z-10 shadow animate-pulse">Berakhir Segera</div>
                 
-                <div class="overflow-hidden rounded-xl">
-                    <img src="85531.jpg" alt="2 Hari Terakhir Promo" class="w-full h-[320px] object-cover mx-auto rounded-lg animated-banner">
+                <div class="overflow-hidden rounded-xl bg-neutral-900">
+                    <img src="85531.jpg" alt="2 Hari Terakhir Promo" class="w-full h-auto max-h-[380px] object-contain mx-auto rounded-lg animated-banner">
                 </div>
 
                 <!-- Teks Promo Harga -->
