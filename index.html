@@ -10,7 +10,7 @@
         
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #050505;
+            background-color: #030303;
             color: #f3f4f6;
             overflow-x: hidden;
             scroll-behavior: smooth;
@@ -37,8 +37,8 @@
         }
 
         .product-card {
-            background: linear-gradient(145deg, #121212, #0d0d0d);
-            border: 1px solid rgba(191, 149, 63, 0.25);
+            background: linear-gradient(145deg, #111111, #080808);
+            border: 1px solid rgba(191, 149, 63, 0.3);
             transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
         .product-card:hover {
@@ -47,11 +47,11 @@
             box-shadow: 0 20px 40px rgba(191, 149, 63, 0.25);
         }
 
-        /* Animasi Intro Overlay */
+        /* Intro Overlay */
         #intro-overlay {
             position: fixed;
             inset: 0;
-            background: #030303;
+            background: radial-gradient(circle at center, #111 0%, #030303 100%);
             z-index: 100;
             display: flex;
             flex-direction: column;
@@ -94,6 +94,20 @@
         .animate-fade-in {
             animation: fadeIn 0.35s ease-out forwards;
         }
+
+        /* Zoom Container Style */
+        .zoom-container {
+            overflow: hidden;
+            border-radius: 0.75rem;
+            cursor: zoom-in;
+            position: relative;
+        }
+        .zoom-container img {
+            transition: transform 0.3s ease;
+        }
+        .zoom-container:hover img {
+            transform: scale(1.8);
+        }
     </style>
 </head>
 <body class="antialiased pb-24">
@@ -115,29 +129,36 @@
 
     <!-- Header / Logo Mewah Utama -->
     <header class="text-center pt-16 pb-8 px-4 relative">
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(191,149,63,0.12)_0%,transparent_70%)] pointer-events-none"></div>
-        <div class="relative inline-block floating">
-            <div class="absolute -inset-1.5 rounded-full bg-gradient-to-r from-yellow-600 via-amber-300 to-yellow-700 blur opacity-60"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(191,149,63,0.15)_0%,transparent_70%)] pointer-events-none"></div>
+        <div class="relative inline-block floating mb-2">
+            <div class="absolute -inset-2 rounded-full bg-gradient-to-r from-yellow-600 via-amber-300 to-yellow-700 blur-md opacity-60"></div>
             <img src="84535.jpg" alt="3 SIXTY Logo" class="relative w-36 h-36 mx-auto rounded-full border-2 border-yellow-500 object-cover shadow-2xl">
         </div>
-        <h1 class="text-4xl md:text-5xl font-bold mt-5 tracking-widest gold-gradient font-playfair">3 SIXTY</h1>
+        <div class="inline-block bg-yellow-500/10 border border-yellow-500/30 text-yellow-400 text-[10px] uppercase tracking-widest px-3 py-1 rounded-full mb-3 font-semibold">
+            ★ Official Luxury Fragrance Brand ★
+        </div>
+        <h1 class="text-4xl md:text-5xl font-bold tracking-widest gold-gradient font-playfair">3 SIXTY</h1>
         <p class="text-gray-400 text-xs md:text-sm tracking-[0.3em] uppercase mt-2 font-medium">360° of Character Eau De Parfum</p>
     </header>
 
     <!-- Elemen Keunggulan / Value Proposition -->
-    <section class="max-w-4xl mx-auto px-4 mb-12">
-        <div class="grid grid-cols-3 gap-2 md:gap-4 text-center bg-[#111]/90 border border-yellow-600/30 p-5 rounded-2xl backdrop-blur-md shadow-[0_10px_30px_rgba(0,0,0,0.8)]">
-            <div class="border-r border-yellow-600/20 pr-2">
-                <p class="text-yellow-500 text-xs md:text-sm font-bold">💎 Aroma Pilihan</p>
-                <p class="text-[10px] md:text-xs text-gray-400 mt-1">Kualitas Internasional</p>
+    <section class="max-w-5xl mx-auto px-4 mb-12">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 text-center bg-[#0d0d0d] border border-yellow-600/40 p-5 rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.8)] relative">
+            <div class="p-2 border-b md:border-b-0 md:border-r border-yellow-600/20">
+                <p class="text-yellow-400 text-sm font-bold font-playfair">💎 Aroma Pilihan</p>
+                <p class="text-[11px] text-gray-400 mt-1">Racikan Eksklusif Berkelas</p>
             </div>
-            <div class="border-r border-yellow-600/20 px-2">
-                <p class="text-yellow-500 text-xs md:text-sm font-bold">🌿 Sehari-hari</p>
-                <p class="text-[10px] md:text-xs text-gray-400 mt-1">Segar & Nyaman</p>
+            <div class="p-2 border-b md:border-b-0 md:border-r border-yellow-600/20">
+                <p class="text-yellow-400 text-sm font-bold font-playfair">⏳ Tahan Lama</p>
+                <p class="text-[11px] text-gray-400 mt-1">Menemani Aktivitas Seharian</p>
             </div>
-            <div class="pl-2">
-                <p class="text-yellow-500 text-xs md:text-sm font-bold">🎁 Lebih Hemat</p>
-                <p class="text-[10px] md:text-xs text-gray-400 mt-1">Promo Spesial</p>
+            <div class="p-2 border-r border-yellow-600/20">
+                <p class="text-yellow-400 text-sm font-bold font-playfair">🌿 Ramah di Kulit</p>
+                <p class="text-[11px] text-gray-400 mt-1">Aman & Nyaman Digunakan</p>
+            </div>
+            <div class="p-2">
+                <p class="text-yellow-400 text-sm font-bold font-playfair">🎁 Promo Spesial</p>
+                <p class="text-[11px] text-gray-400 mt-1">Diskon Khusus Peluncuran</p>
             </div>
         </div>
     </section>
@@ -174,7 +195,7 @@
     <!-- Kategori Men -->
     <section class="max-w-5xl mx-auto px-4 mb-16">
         <div class="text-center mb-10">
-            <span class="text-yellow-500 uppercase tracking-widest text-xs font-semibold block mb-1">Koleksi Eksklusif</span>
+            <span class="text-yellow-500 uppercase tracking-widest text-xs font-semibold block mb-1">Koleksi Eksklusif Pria</span>
             <h2 class="text-3xl md:text-4xl font-playfair font-bold gold-gradient inline-block border-b border-yellow-600/50 pb-2">MEN'S COLLECTION</h2>
         </div>
         
@@ -182,9 +203,10 @@
             <!-- AR-ONE -->
             <div class="product-card rounded-xl overflow-hidden flex flex-col cursor-pointer group" onclick="openLightbox('84532.png', 'AR-ONE', 'Fresh, maskulin, spicy, elegan', 'Men')">
                 <div class="overflow-hidden relative aspect-square bg-neutral-900">
+                    <div class="absolute top-2 left-2 bg-yellow-600/90 text-black text-[9px] font-bold px-2 py-0.5 rounded z-10">Best Seller</div>
                     <img src="84532.png" alt="AR-ONE" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-3">
-                        <span class="w-full bg-gold-btn text-black text-xs font-bold py-2.5 rounded-lg text-center shadow-lg">Lihat Detail ✨</span>
+                        <span class="w-full bg-gold-btn text-black text-xs font-bold py-2.5 rounded-lg text-center shadow-lg">Lihat & Zoom Detail 🔍</span>
                     </div>
                 </div>
                 <div class="p-4 flex-grow flex flex-col justify-between">
@@ -202,9 +224,10 @@
             <!-- BLACK CODE -->
             <div class="product-card rounded-xl overflow-hidden flex flex-col cursor-pointer group" onclick="openLightbox('84533.png', 'BLACK CODE', 'Fresh, spicy, warm, misterius', 'Men')">
                 <div class="overflow-hidden relative aspect-square bg-neutral-900">
+                    <div class="absolute top-2 left-2 bg-yellow-600/90 text-black text-[9px] font-bold px-2 py-0.5 rounded z-10">Favorit</div>
                     <img src="84533.png" alt="BLACK CODE" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-3">
-                        <span class="w-full bg-gold-btn text-black text-xs font-bold py-2.5 rounded-lg text-center shadow-lg">Lihat Detail ✨</span>
+                        <span class="w-full bg-gold-btn text-black text-xs font-bold py-2.5 rounded-lg text-center shadow-lg">Lihat & Zoom Detail 🔍</span>
                     </div>
                 </div>
                 <div class="p-4 flex-grow flex flex-col justify-between">
@@ -222,9 +245,10 @@
             <!-- MEN'S CLUB -->
             <div class="product-card rounded-xl overflow-hidden flex flex-col cursor-pointer group" onclick="openLightbox('85009.jpg', 'MEN\'S CLUB', 'Fresh, clean, manly, sedikit manis', 'Men')">
                 <div class="overflow-hidden relative aspect-square bg-neutral-900">
+                    <div class="absolute top-2 left-2 bg-yellow-600/90 text-black text-[9px] font-bold px-2 py-0.5 rounded z-10">Popular</div>
                     <img src="85009.jpg" alt="MEN'S CLUB" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-3">
-                        <span class="w-full bg-gold-btn text-black text-xs font-bold py-2.5 rounded-lg text-center shadow-lg">Lihat Detail ✨</span>
+                        <span class="w-full bg-gold-btn text-black text-xs font-bold py-2.5 rounded-lg text-center shadow-lg">Lihat & Zoom Detail 🔍</span>
                     </div>
                 </div>
                 <div class="p-4 flex-grow flex flex-col justify-between">
@@ -242,9 +266,10 @@
             <!-- ROYAL MAN -->
             <div class="product-card rounded-xl overflow-hidden flex flex-col cursor-pointer group" onclick="openLightbox('85004.jpg', 'ROYAL MAN', 'Fresh, elegant, clean, woody', 'Men')">
                 <div class="overflow-hidden relative aspect-square bg-neutral-900">
+                    <div class="absolute top-2 left-2 bg-yellow-600/90 text-black text-[9px] font-bold px-2 py-0.5 rounded z-10">Eksklusif</div>
                     <img src="85004.jpg" alt="ROYAL MAN" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-3">
-                        <span class="w-full bg-gold-btn text-black text-xs font-bold py-2.5 rounded-lg text-center shadow-lg">Lihat Detail ✨</span>
+                        <span class="w-full bg-gold-btn text-black text-xs font-bold py-2.5 rounded-lg text-center shadow-lg">Lihat & Zoom Detail 🔍</span>
                     </div>
                 </div>
                 <div class="p-4 flex-grow flex flex-col justify-between">
@@ -262,9 +287,10 @@
             <!-- RS-ONE -->
             <div class="product-card rounded-xl overflow-hidden flex flex-col cursor-pointer group" onclick="openLightbox('85013.jpg', 'RS-ONE', 'Fruity, fresh, smoky, woody', 'Men')">
                 <div class="overflow-hidden relative aspect-square bg-neutral-900">
+                    <div class="absolute top-2 left-2 bg-yellow-600/90 text-black text-[9px] font-bold px-2 py-0.5 rounded z-10">Special</div>
                     <img src="85013.jpg" alt="RS-ONE" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-3">
-                        <span class="w-full bg-gold-btn text-black text-xs font-bold py-2.5 rounded-lg text-center shadow-lg">Lihat Detail ✨</span>
+                        <span class="w-full bg-gold-btn text-black text-xs font-bold py-2.5 rounded-lg text-center shadow-lg">Lihat & Zoom Detail 🔍</span>
                     </div>
                 </div>
                 <div class="p-4 flex-grow flex flex-col justify-between">
@@ -282,9 +308,10 @@
              <!-- SIGNATURE -->
              <div class="product-card rounded-xl overflow-hidden flex flex-col cursor-pointer group" onclick="openLightbox('85498.jpg', 'SIGNATURE', 'Baccarat Rouge 540 x Creed Aventus', 'Men')">
                 <div class="overflow-hidden relative aspect-square bg-neutral-900">
+                    <div class="absolute top-2 left-2 bg-yellow-600/90 text-black text-[9px] font-bold px-2 py-0.5 rounded z-10">Masterpiece</div>
                     <img src="85498.jpg" alt="SIGNATURE" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-3">
-                        <span class="w-full bg-gold-btn text-black text-xs font-bold py-2.5 rounded-lg text-center shadow-lg">Lihat Detail ✨</span>
+                        <span class="w-full bg-gold-btn text-black text-xs font-bold py-2.5 rounded-lg text-center shadow-lg">Lihat & Zoom Detail 🔍</span>
                     </div>
                 </div>
                 <div class="p-4 flex-grow flex flex-col justify-between">
@@ -304,7 +331,7 @@
     <!-- Kategori Women -->
     <section class="max-w-5xl mx-auto px-4 mb-20">
         <div class="text-center mb-10">
-            <span class="text-yellow-500 uppercase tracking-widest text-xs font-semibold block mb-1">Koleksi Eksklusif</span>
+            <span class="text-yellow-500 uppercase tracking-widest text-xs font-semibold block mb-1">Koleksi Eksklusif Wanita</span>
             <h2 class="text-3xl md:text-4xl font-playfair font-bold gold-gradient inline-block border-b border-yellow-600/50 pb-2">WOMEN'S COLLECTION</h2>
         </div>
         
@@ -312,9 +339,10 @@
             <!-- WHITE ORCHID -->
             <div class="product-card rounded-xl overflow-hidden flex flex-col cursor-pointer group" onclick="openLightbox('84537.png', 'WHITE ORCHID', 'Floral, oriental, warm, sensual', 'Women')">
                 <div class="overflow-hidden relative aspect-square bg-neutral-900">
+                    <div class="absolute top-2 left-2 bg-yellow-600/90 text-black text-[9px] font-bold px-2 py-0.5 rounded z-10">Best Seller</div>
                     <img src="84537.png" alt="WHITE ORCHID" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-3">
-                        <span class="w-full bg-gold-btn text-black text-xs font-bold py-2.5 rounded-lg text-center shadow-lg">Lihat Detail ✨</span>
+                        <span class="w-full bg-gold-btn text-black text-xs font-bold py-2.5 rounded-lg text-center shadow-lg">Lihat & Zoom Detail 🔍</span>
                     </div>
                 </div>
                 <div class="p-4 flex-grow flex flex-col justify-between">
@@ -332,9 +360,10 @@
             <!-- LADY CHARM -->
             <div class="product-card rounded-xl overflow-hidden flex flex-col cursor-pointer group" onclick="openLightbox('84534.png', 'LADY CHARM', 'Fresh, fruity, floral, playful', 'Women')">
                 <div class="overflow-hidden relative aspect-square bg-neutral-900">
+                    <div class="absolute top-2 left-2 bg-yellow-600/90 text-black text-[9px] font-bold px-2 py-0.5 rounded z-10">Favorit</div>
                     <img src="84534.png" alt="LADY CHARM" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-3">
-                        <span class="w-full bg-gold-btn text-black text-xs font-bold py-2.5 rounded-lg text-center shadow-lg">Lihat Detail ✨</span>
+                        <span class="w-full bg-gold-btn text-black text-xs font-bold py-2.5 rounded-lg text-center shadow-lg">Lihat & Zoom Detail 🔍</span>
                     </div>
                 </div>
                 <div class="p-4 flex-grow flex flex-col justify-between">
@@ -351,12 +380,16 @@
         </div>
     </section>
 
-    <!-- Modal Lightbox (Popup Detail Foto Jelas) -->
+    <!-- Modal Lightbox dengan Fitur Zoom -->
     <div id="lightboxModal" class="fixed inset-0 bg-black/95 z-50 hidden items-center justify-center p-4 backdrop-blur-md">
         <div class="bg-[#121212] border border-yellow-600/50 rounded-2xl max-w-md w-full p-6 relative animate-fade-in shadow-[0_0_50px_rgba(191,149,63,0.3)]">
-            <button onclick="closeLightbox()" class="absolute top-4 right-4 text-gray-400 hover:text-white bg-neutral-800 w-8 h-8 rounded-full flex items-center justify-center text-lg font-bold transition">&times;</button>
+            <button onclick="closeLightbox()" class="absolute top-4 right-4 text-gray-400 hover:text-white bg-neutral-800 w-8 h-8 rounded-full flex items-center justify-center text-lg font-bold transition z-20">&times;</button>
             <div class="text-center">
-                <img id="lightboxImg" src="" alt="Detail Parfum" class="w-full max-h-[320px] object-contain rounded-xl mb-4 border border-yellow-600/20 bg-neutral-900 p-2">
+                <!-- Area Zoom Foto -->
+                <div class="zoom-container mb-4 border border-yellow-600/20 bg-neutral-900 p-2">
+                    <img id="lightboxImg" src="" alt="Detail Parfum" class="w-full max-h-[300px] object-contain mx-auto">
+                </div>
+                <p class="text-[10px] text-yellow-500 mb-3 tracking-widest uppercase">💡 Arahkan kursor atau sentuh gambar untuk memperbesar (Zoom)</p>
                 <h3 id="lightboxTitle" class="text-2xl font-playfair font-bold text-yellow-400 mb-1"></h3>
                 <p id="lightboxDesc" class="text-xs text-gray-300 mb-6 px-2 leading-relaxed"></p>
                 <button id="lightboxOrderBtn" onclick="" class="w-full bg-gold-btn text-black font-bold py-3.5 rounded-xl transition shadow-lg text-sm tracking-wider uppercase">
