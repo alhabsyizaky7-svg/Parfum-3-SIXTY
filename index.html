@@ -10,11 +10,11 @@
         
         body {
             font-family: 'Poppins', sans-serif;
-            background: radial-gradient(circle at 50% 20%, #1a150c 0%, #080705 50%, #020202 100%);
+            background: #0c0a07;
             color: #f3f4f6;
             overflow-x: hidden;
             scroll-behavior: smooth;
-            min-height: 100vh;
+            padding-bottom: 70px; /* Ruang untuk navbar bawah */
         }
 
         h1, h2, h3, .font-playfair {
@@ -41,15 +41,14 @@
             background: linear-gradient(145deg, rgba(20,18,14,0.9), rgba(10,9,7,0.9));
             border: 1px solid rgba(191, 149, 63, 0.3);
             transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            backdrop-filter: blur(10px);
         }
         .product-card:hover {
-            transform: translateY(-8px) scale(1.01);
+            transform: translateY(-6px);
             border-color: rgba(191, 149, 63, 0.9);
-            box-shadow: 0 20px 40px rgba(191, 149, 63, 0.25);
+            box-shadow: 0 15px 30px rgba(191, 149, 63, 0.2);
         }
 
-        /* Intro Overlay Center Fix & Animasi Menyeluruh */
+        /* Intro Overlay Animasi Menyeluruh */
         #intro-overlay {
             position: fixed;
             inset: 0;
@@ -59,60 +58,48 @@
             align-items: center;
             justify-content: center;
             transition: opacity 1s ease, visibility 1s ease;
-            overflow: hidden;
-        }
-
-        .intro-box {
-            text-align: center;
-            width: 100%;
-            max-width: 500px;
-            padding: 0 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
         }
 
         @keyframes introLogoAnim {
             0% { transform: translateY(-30px) scale(0.8); opacity: 0; filter: blur(10px); }
             100% { transform: translateY(0) scale(1); opacity: 1; filter: blur(0px); }
         }
-
         @keyframes introTextAnim {
             0% { transform: translateY(20px); opacity: 0; }
             100% { transform: translateY(0); opacity: 1; }
         }
-
-        @keyframes introBtnAnim {
-            0% { transform: scale(0.8); opacity: 0; }
-            100% { transform: scale(1); opacity: 1; }
-        }
-
         .anim-logo { animation: introLogoAnim 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
         .anim-title { animation: introTextAnim 1.2s 0.3s cubic-bezier(0.16, 1, 0.3, 1) both; }
         .anim-sub { animation: introTextAnim 1.2s 0.5s cubic-bezier(0.16, 1, 0.3, 1) both; }
-        .anim-btn { animation: introBtnAnim 1s 0.7s cubic-bezier(0.16, 1, 0.3, 1) both; }
+        .anim-btn { animation: introTextAnim 1s 0.7s cubic-bezier(0.16, 1, 0.3, 1) both; }
 
-        @keyframes floatSlow {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-8px); }
+        /* Bottom Navigation Style */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #12100c;
+            border-top: 1px solid rgba(191, 149, 63, 0.2);
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+            z-index: 50;
+            backdrop-filter: blur(10px);
         }
-        .floating { animation: floatSlow 4s ease-in-out infinite; }
-
-        @keyframes gentleMove {
-            0% { transform: translateY(0px) scale(1); }
-            50% { transform: translateY(-4px) scale(1.01); }
-            100% { transform: translateY(0px) scale(1); }
+        .bottom-nav a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #9ca3af;
+            font-size: 11px;
+            text-decoration: none;
+            transition: color 0.3s;
         }
-        .animated-banner { animation: gentleMove 5s infinite ease-in-out; }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.95); }
-            to { opacity: 1; transform: scale(1); }
+        .bottom-nav a:hover, .bottom-nav a.active {
+            color: #bf953f;
         }
-        .animate-fade-in { animation: fadeIn 0.35s ease-out forwards; }
 
-        /* Zoom Container Style */
         .zoom-container {
             overflow: hidden;
             border-radius: 0.75rem;
@@ -123,317 +110,215 @@
         .zoom-container:hover img { transform: scale(1.8); }
     </style>
 </head>
-<body class="antialiased pb-24">
+<body class="antialiased">
 
-    <!-- INTRO ANIMASI MENYELURUH (DI TENGAH) -->
+    <!-- INTRO ANIMASI AWAL -->
     <div id="intro-overlay">
-        <div class="intro-box">
+        <div class="text-center px-4 max-w-sm">
             <div class="relative inline-block mb-6 anim-logo">
                 <div class="absolute -inset-4 rounded-full bg-gradient-to-r from-yellow-600 via-amber-300 to-yellow-700 blur-2xl opacity-70 animate-pulse"></div>
-                <img src="84535.jpg" alt="3 SIXTY Logo" class="relative w-40 h-40 mx-auto rounded-full border-2 border-yellow-500 object-cover shadow-2xl">
+                <img src="84535.jpg" alt="3 SIXTY Logo" class="relative w-36 h-36 mx-auto rounded-full border-2 border-yellow-500 object-cover shadow-2xl">
             </div>
-            <h1 class="text-4xl md:text-5xl font-bold tracking-widest gold-gradient font-playfair mb-2 anim-title">3 SIXTY</h1>
-            <p class="text-gray-300 text-xs md:text-sm tracking-[0.4em] uppercase mb-8 anim-sub font-medium">360° of Character Eau De Parfum</p>
+            <h1 class="text-4xl font-bold tracking-widest gold-gradient font-playfair mb-2 anim-title">3 SIXTY</h1>
+            <p class="text-gray-300 text-xs tracking-[0.3em] uppercase mb-8 anim-sub font-medium">360° of Character Eau De Parfum</p>
             <div class="anim-btn">
-                <button onclick="enterWebsite()" class="bg-gold-btn text-black font-bold px-9 py-4 rounded-full uppercase text-xs tracking-widest shadow-[0_0_25px_rgba(191,149,63,0.5)] transition hover:scale-105">
+                <button onclick="enterWebsite()" class="bg-gold-btn text-black font-bold px-8 py-3.5 rounded-full uppercase text-xs tracking-widest shadow-lg">
                     Jelajahi Koleksi ✨
                 </button>
             </div>
         </div>
     </div>
 
-    <!-- Header / Logo Mewah Utama (Posisi Pasti di Tengah) -->
-    <header class="w-full text-center pt-16 pb-8 px-4 relative flex flex-col items-center justify-center">
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(191,149,63,0.1)_0%,transparent_70%)] pointer-events-none"></div>
-        <div class="relative inline-block floating mb-3">
-            <div class="absolute -inset-2 rounded-full bg-gradient-to-r from-yellow-600 via-amber-300 to-yellow-700 blur-md opacity-60"></div>
-            <img src="84535.jpg" alt="3 SIXTY Logo" class="relative w-36 h-36 mx-auto rounded-full border-2 border-yellow-500 object-cover shadow-2xl">
+    <!-- Header Navbar Atas Mirip Referensi -->
+    <header class="bg-[#12100c] border-b border-yellow-600/20 px-4 py-3 flex justify-between items-center sticky top-0 z-40">
+        <div class="flex items-center gap-3">
+            <img src="84535.jpg" alt="Logo" class="w-10 h-10 rounded-full border border-yellow-500 object-cover">
+            <span class="font-playfair font-bold text-lg gold-gradient tracking-wider">3 SIXTY</span>
         </div>
-        <div class="inline-block bg-yellow-500/10 border border-yellow-500/30 text-yellow-400 text-[10px] uppercase tracking-widest px-3 py-1 rounded-full mb-3 font-semibold">
-            ★ Official Luxury Fragrance Brand ★
-        </div>
-        <h1 class="text-4xl md:text-5xl font-bold tracking-widest gold-gradient font-playfair">3 SIXTY</h1>
-        <p class="text-gray-400 text-xs md:text-sm tracking-[0.3em] uppercase mt-2 font-medium">360° of Character Eau De Parfum</p>
+        <a href="#order-section" class="bg-gold-btn text-black text-xs font-bold px-4 py-2 rounded-full uppercase tracking-wider">Pesan</a>
     </header>
 
-    <!-- Elemen Keunggulan / Value Proposition -->
-    <section class="max-w-5xl mx-auto px-4 mb-12">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 text-center bg-[#100e0b]/90 border border-yellow-600/40 p-5 rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.8)] backdrop-blur-md">
-            <div class="p-2 border-b md:border-b-0 md:border-r border-yellow-600/20">
-                <p class="text-yellow-400 text-sm font-bold font-playfair">💎 Aroma Pilihan</p>
-                <p class="text-[11px] text-gray-400 mt-1">Racikan Eksklusif Berkelas</p>
+    <!-- Hero Section dengan Background Botol Utama -->
+    <section class="relative min-h-[85vh] flex flex-col items-center justify-center text-center px-4 py-16 bg-cover bg-center" style="background-image: linear-gradient(to bottom, rgba(8,7,5,0.7), rgba(8,7,5,0.95)), url('86090.png');">
+        <div class="max-w-2xl relative z-10">
+            <div class="inline-block bg-yellow-500/10 border border-yellow-500/30 text-yellow-400 text-[10px] uppercase tracking-widest px-3 py-1 rounded-full mb-4 font-semibold">
+                ★ Official Luxury Fragrance Brand ★
             </div>
-            <div class="p-2 border-b md:border-b-0 md:border-r border-yellow-600/20">
-                <p class="text-yellow-400 text-sm font-bold font-playfair">⏳ Tahan Lama</p>
-                <p class="text-[11px] text-gray-400 mt-1">Menemani Aktivitas Seharian</p>
+            <h1 class="text-4xl md:text-6xl font-bold tracking-wide gold-gradient font-playfair mb-4">
+                EAU DE PARFUM BERKELAS
+            </h1>
+            <p class="text-gray-300 text-sm md:text-base leading-relaxed mb-8 max-w-xl mx-auto font-light">
+                3 SIXTY hadir dengan racikan eksklusif 360° of Character Eau De Parfum. Memancarkan aura kemewahan, kesegaran tahan lama, dan ramah di kulit untuk menemani aktivitas harian Anda.
+            </p>
+            <a href="#order-section" class="inline-block bg-gold-btn text-black font-bold px-8 py-4 rounded-xl uppercase text-xs tracking-widest shadow-2xl transition hover:scale-105">
+                HUBUNGI KAMI / PESAN
+            </a>
+        </div>
+    </section>
+
+    <!-- Layanan / Keunggulan Kami -->
+    <section class="py-16 px-4 bg-[#080705] border-t border-yellow-600/10">
+        <div class="max-w-4xl mx-auto text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-playfair font-bold gold-gradient mb-3">Keunggulan Koleksi Kami</h2>
+            <p class="text-gray-400 text-xs md:text-sm tracking-wide">Standar kualitas tinggi untuk kepuasan aroma parfum Anda.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            <div class="bg-[#14120e] border border-yellow-600/30 p-6 rounded-2xl text-center">
+                <div class="text-3xl mb-3">💎</div>
+                <h3 class="text-yellow-400 font-playfair font-bold text-lg mb-2">Aroma Pilihan</h3>
+                <p class="text-xs text-gray-400 leading-relaxed">Racikan esensial premium yang dirancang khusus untuk menciptakan karakter aroma yang kuat dan memikat.</p>
             </div>
-            <div class="p-2 border-r border-yellow-600/20">
-                <p class="text-yellow-400 text-sm font-bold font-playfair">🌿 Ramah di Kulit</p>
-                <p class="text-[11px] text-gray-400 mt-1">Aman & Nyaman Digunakan</p>
+            <div class="bg-[#14120e] border border-yellow-600/30 p-6 rounded-2xl text-center">
+                <div class="text-3xl mb-3">⏳</div>
+                <h3 class="text-yellow-400 font-playfair font-bold text-lg mb-2">Tahan Lama</h3>
+                <p class="text-xs text-gray-400 leading-relaxed">Formula konsentrat tinggi memastikan keharuman bertahan sepanjang hari menemani setiap aktivitas Anda.</p>
             </div>
-            <div class="p-2">
-                <p class="text-yellow-400 text-sm font-bold font-playfair">🎁 Promo Spesial</p>
-                <p class="text-[11px] text-gray-400 mt-1">Diskon Khusus Peluncuran</p>
+            <div class="bg-[#14120e] border border-yellow-600/30 p-6 rounded-2xl text-center">
+                <div class="text-3xl mb-3">🌿</div>
+                <h3 class="text-yellow-400 font-playfair font-bold text-lg mb-2">Ramah di Kulit</h3>
+                <p class="text-xs text-gray-400 leading-relaxed">Menggunakan bahan-bahan pilihan yang aman, nyaman, serta tidak meninggalkan noda pada pakaian.</p>
             </div>
         </div>
     </section>
 
-    <!-- Banner Foto Botol Utama & Promo -->
-    <section class="max-w-xl mx-auto px-4 mb-16">
-        <div class="space-y-8">
-            <!-- 1. Foto Botol Utama (botol-utama.jpg) -->
-            <div class="bg-[#12100c] p-4 rounded-2xl border border-yellow-600/40 shadow-[0_0_30px_rgba(0,0,0,0.9)] relative overflow-hidden group">
-                <div class="absolute top-3 right-3 bg-yellow-600 text-black text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full z-10 shadow">Signature Bottle</div>
-                <div class="overflow-hidden rounded-xl bg-white p-2">
-                    <img src="86090.png" alt="3 SIXTY Eau De Parfum" class="w-full h-auto max-h-[380px] object-contain mx-auto rounded-lg transition duration-700 group-hover:scale-105">
-                </div>
-            </div>
-
-            <!-- 2. Banner Kedua: 2 Hari Terakhir -->
-            <div class="bg-[#12100c] p-4 rounded-2xl border border-red-500/40 shadow-[0_0_30px_rgba(0,0,0,0.9)] relative overflow-hidden">
-                <div class="absolute top-3 right-3 bg-red-600 text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full z-10 shadow animate-pulse">Berakhir Segera</div>
-                
-                <div class="overflow-hidden rounded-xl bg-neutral-900">
-                    <img src="85531.jpg" alt="2 Hari Terakhir Promo" class="w-full h-auto max-h-[380px] object-contain mx-auto rounded-lg animated-banner">
-                </div>
-
-                <!-- Teks Promo Harga -->
-                <div class="text-center mt-5 bg-gradient-to-r from-red-950/40 via-red-900/50 to-red-950/40 border border-red-500/40 p-4 rounded-xl">
-                    <p class="text-lg font-bold text-yellow-400 font-playfair">PROMO SPESIAL</p>
-                    <p class="text-sm mt-1 text-gray-200">Harga Diskon: <span class="line-through text-gray-400 text-xs">Rp 45.000</span> <span class="font-bold text-xl text-white ml-2 gold-gradient">Rp 40.000</span></p>
-                    <p class="text-xs text-yellow-300 mt-1.5 font-semibold">Berlaku sampai dengan tanggal 12</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Kategori Men -->
-    <section class="max-w-5xl mx-auto px-4 mb-16">
+    <!-- Koleksi Men -->
+    <section class="py-16 px-4 max-w-5xl mx-auto">
         <div class="text-center mb-10">
             <span class="text-yellow-500 uppercase tracking-widest text-xs font-semibold block mb-1">Koleksi Eksklusif Pria</span>
             <h2 class="text-3xl md:text-4xl font-playfair font-bold gold-gradient inline-block border-b border-yellow-600/50 pb-2">MEN'S COLLECTION</h2>
         </div>
         
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-            <!-- AR-ONE -->
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
             <div class="product-card rounded-xl overflow-hidden flex flex-col cursor-pointer group" onclick="openLightbox('84532.png', 'AR-ONE', 'Fresh, maskulin, spicy, elegan', 'Men')">
-                <div class="overflow-hidden relative aspect-square bg-neutral-900/50">
-                    <div class="absolute top-2 left-2 bg-yellow-600/90 text-black text-[9px] font-bold px-2 py-0.5 rounded z-10">Best Seller</div>
+                <div class="overflow-hidden relative aspect-square bg-neutral-900">
                     <img src="84532.png" alt="AR-ONE" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-3">
-                        <span class="w-full bg-gold-btn text-black text-xs font-bold py-2.5 rounded-lg text-center shadow-lg">Lihat & Zoom Detail 🔍</span>
-                    </div>
                 </div>
                 <div class="p-4 flex-grow flex flex-col justify-between">
                     <div>
-                        <h3 class="text-base md:text-lg font-bold text-yellow-400 font-playfair">AR-ONE</h3>
-                        <p class="text-[11px] md:text-xs text-gray-400 mt-1">Fresh, maskulin, spicy, elegan</p>
+                        <h3 class="text-base font-bold text-yellow-400 font-playfair">AR-ONE</h3>
+                        <p class="text-[11px] text-gray-400 mt-1">Fresh, maskulin, spicy, elegan</p>
                     </div>
-                    <div class="mt-3 pt-2.5 border-t border-yellow-600/10 flex justify-between items-center text-xs">
+                    <div class="mt-3 pt-2 border-t border-yellow-600/10 flex justify-between items-center text-xs">
                         <span class="text-yellow-500 font-bold">Rp 40.000</span>
-                        <span class="text-gray-500 text-[10px]">30 ml</span>
+                        <span class="text-gray-500">30 ml</span>
                     </div>
                 </div>
             </div>
 
-            <!-- BLACK CODE -->
             <div class="product-card rounded-xl overflow-hidden flex flex-col cursor-pointer group" onclick="openLightbox('84533.png', 'BLACK CODE', 'Fresh, spicy, warm, misterius', 'Men')">
-                <div class="overflow-hidden relative aspect-square bg-neutral-900/50">
-                    <div class="absolute top-2 left-2 bg-yellow-600/90 text-black text-[9px] font-bold px-2 py-0.5 rounded z-10">Favorit</div>
+                <div class="overflow-hidden relative aspect-square bg-neutral-900">
                     <img src="84533.png" alt="BLACK CODE" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-3">
-                        <span class="w-full bg-gold-btn text-black text-xs font-bold py-2.5 rounded-lg text-center shadow-lg">Lihat & Zoom Detail 🔍</span>
-                    </div>
                 </div>
                 <div class="p-4 flex-grow flex flex-col justify-between">
                     <div>
-                        <h3 class="text-base md:text-lg font-bold text-yellow-400 font-playfair">BLACK CODE</h3>
-                        <p class="text-[11px] md:text-xs text-gray-400 mt-1">Fresh, spicy, warm, misterius</p>
+                        <h3 class="text-base font-bold text-yellow-400 font-playfair">BLACK CODE</h3>
+                        <p class="text-[11px] text-gray-400 mt-1">Fresh, spicy, warm, misterius</p>
                     </div>
-                    <div class="mt-3 pt-2.5 border-t border-yellow-600/10 flex justify-between items-center text-xs">
+                    <div class="mt-3 pt-2 border-t border-yellow-600/10 flex justify-between items-center text-xs">
                         <span class="text-yellow-500 font-bold">Rp 40.000</span>
-                        <span class="text-gray-500 text-[10px]">30 ml</span>
+                        <span class="text-gray-500">30 ml</span>
                     </div>
                 </div>
             </div>
 
-            <!-- MEN'S CLUB -->
-            <div class="product-card rounded-xl overflow-hidden flex flex-col cursor-pointer group" onclick="openLightbox('85009.jpg', 'MEN\'S CLUB', 'Fresh, clean, manly, sedikit manis', 'Men')">
-                <div class="overflow-hidden relative aspect-square bg-neutral-900/50">
-                    <div class="absolute top-2 left-2 bg-yellow-600/90 text-black text-[9px] font-bold px-2 py-0.5 rounded z-10">Popular</div>
-                    <img src="85009.jpg" alt="MEN'S CLUB" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-3">
-                        <span class="w-full bg-gold-btn text-black text-xs font-bold py-2.5 rounded-lg text-center shadow-lg">Lihat & Zoom Detail 🔍</span>
-                    </div>
-                </div>
-                <div class="p-4 flex-grow flex flex-col justify-between">
-                    <div>
-                        <h3 class="text-base md:text-lg font-bold text-yellow-400 font-playfair truncate">MEN'S CLUB</h3>
-                        <p class="text-[11px] md:text-xs text-gray-400 mt-1">Fresh, clean, manly, sedikit manis</p>
-                    </div>
-                    <div class="mt-3 pt-2.5 border-t border-yellow-600/10 flex justify-between items-center text-xs">
-                        <span class="text-yellow-500 font-bold">Rp 40.000</span>
-                        <span class="text-gray-500 text-[10px]">30 ml</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ROYAL MAN -->
-            <div class="product-card rounded-xl overflow-hidden flex flex-col cursor-pointer group" onclick="openLightbox('85004.jpg', 'ROYAL MAN', 'Fresh, elegant, clean, woody', 'Men')">
-                <div class="overflow-hidden relative aspect-square bg-neutral-900/50">
-                    <div class="absolute top-2 left-2 bg-yellow-600/90 text-black text-[9px] font-bold px-2 py-0.5 rounded z-10">Eksklusif</div>
-                    <img src="85004.jpg" alt="ROYAL MAN" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-3">
-                        <span class="w-full bg-gold-btn text-black text-xs font-bold py-2.5 rounded-lg text-center shadow-lg">Lihat & Zoom Detail 🔍</span>
-                    </div>
-                </div>
-                <div class="p-4 flex-grow flex flex-col justify-between">
-                    <div>
-                        <h3 class="text-base md:text-lg font-bold text-yellow-400 font-playfair truncate">ROYAL MAN</h3>
-                        <p class="text-[11px] md:text-xs text-gray-400 mt-1">Fresh, elegant, clean, woody</p>
-                    </div>
-                    <div class="mt-3 pt-2.5 border-t border-yellow-600/10 flex justify-between items-center text-xs">
-                        <span class="text-yellow-500 font-bold">Rp 40.000</span>
-                        <span class="text-gray-500 text-[10px]">30 ml</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- RS-ONE -->
-            <div class="product-card rounded-xl overflow-hidden flex flex-col cursor-pointer group" onclick="openLightbox('85013.jpg', 'RS-ONE', 'Fruity, fresh, smoky, woody', 'Men')">
-                <div class="overflow-hidden relative aspect-square bg-neutral-900/50">
-                    <div class="absolute top-2 left-2 bg-yellow-600/90 text-black text-[9px] font-bold px-2 py-0.5 rounded z-10">Special</div>
-                    <img src="85013.jpg" alt="RS-ONE" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-3">
-                        <span class="w-full bg-gold-btn text-black text-xs font-bold py-2.5 rounded-lg text-center shadow-lg">Lihat & Zoom Detail 🔍</span>
-                    </div>
-                </div>
-                <div class="p-4 flex-grow flex flex-col justify-between">
-                    <div>
-                        <h3 class="text-base md:text-lg font-bold text-yellow-400 font-playfair">RS-ONE</h3>
-                        <p class="text-[11px] md:text-xs text-gray-400 mt-1">Fruity, fresh, smoky, woody</p>
-                    </div>
-                    <div class="mt-3 pt-2.5 border-t border-yellow-600/10 flex justify-between items-center text-xs">
-                        <span class="text-yellow-500 font-bold">Rp 40.000</span>
-                        <span class="text-gray-500 text-[10px]">30 ml</span>
-                    </div>
-                </div>
-            </div>
-
-             <!-- SIGNATURE -->
-             <div class="product-card rounded-xl overflow-hidden flex flex-col cursor-pointer group" onclick="openLightbox('85498.jpg', 'SIGNATURE', 'Baccarat Rouge 540 x Creed Aventus', 'Men')">
-                <div class="overflow-hidden relative aspect-square bg-neutral-900/50">
-                    <div class="absolute top-2 left-2 bg-yellow-600/90 text-black text-[9px] font-bold px-2 py-0.5 rounded z-10">Masterpiece</div>
+            <div class="product-card rounded-xl overflow-hidden flex flex-col cursor-pointer group" onclick="openLightbox('85498.jpg', 'SIGNATURE', 'Baccarat Rouge 540 x Creed Aventus', 'Men')">
+                <div class="overflow-hidden relative aspect-square bg-neutral-900">
                     <img src="85498.jpg" alt="SIGNATURE" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-3">
-                        <span class="w-full bg-gold-btn text-black text-xs font-bold py-2.5 rounded-lg text-center shadow-lg">Lihat & Zoom Detail 🔍</span>
-                    </div>
                 </div>
                 <div class="p-4 flex-grow flex flex-col justify-between">
                     <div>
-                        <h3 class="text-base md:text-lg font-bold text-yellow-400 font-playfair">SIGNATURE</h3>
-                        <p class="text-[11px] md:text-xs text-gray-400 mt-1">Baccarat Rouge 540 x Creed Aventus</p>
+                        <h3 class="text-base font-bold text-yellow-400 font-playfair">SIGNATURE</h3>
+                        <p class="text-[11px] text-gray-400 mt-1">Baccarat Rouge x Creed Aventus</p>
                     </div>
-                    <div class="mt-3 pt-2.5 border-t border-yellow-600/10 flex justify-between items-center text-xs">
+                    <div class="mt-3 pt-2 border-t border-yellow-600/10 flex justify-between items-center text-xs">
                         <span class="text-yellow-500 font-bold">Rp 40.000</span>
-                        <span class="text-gray-500 text-[10px]">30 ml</span>
+                        <span class="text-gray-500">30 ml</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Kategori Women -->
-    <section class="max-w-5xl mx-auto px-4 mb-20">
+    <!-- Koleksi Women -->
+    <section class="py-12 px-4 max-w-5xl mx-auto">
         <div class="text-center mb-10">
             <span class="text-yellow-500 uppercase tracking-widest text-xs font-semibold block mb-1">Koleksi Eksklusif Wanita</span>
             <h2 class="text-3xl md:text-4xl font-playfair font-bold gold-gradient inline-block border-b border-yellow-600/50 pb-2">WOMEN'S COLLECTION</h2>
         </div>
         
-        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 max-w-3xl mx-auto">
-            <!-- WHITE ORCHID -->
+        <div class="grid grid-cols-2 md:grid-cols-2 gap-4 max-w-2xl mx-auto">
             <div class="product-card rounded-xl overflow-hidden flex flex-col cursor-pointer group" onclick="openLightbox('84537.png', 'WHITE ORCHID', 'Floral, oriental, warm, sensual', 'Women')">
-                <div class="overflow-hidden relative aspect-square bg-neutral-900/50">
-                    <div class="absolute top-2 left-2 bg-yellow-600/90 text-black text-[9px] font-bold px-2 py-0.5 rounded z-10">Best Seller</div>
+                <div class="overflow-hidden relative aspect-square bg-neutral-900">
                     <img src="84537.png" alt="WHITE ORCHID" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-3">
-                        <span class="w-full bg-gold-btn text-black text-xs font-bold py-2.5 rounded-lg text-center shadow-lg">Lihat & Zoom Detail 🔍</span>
-                    </div>
                 </div>
                 <div class="p-4 flex-grow flex flex-col justify-between">
                     <div>
-                        <h3 class="text-base md:text-lg font-bold text-yellow-400 font-playfair truncate">WHITE ORCHID</h3>
-                        <p class="text-[11px] md:text-xs text-gray-400 mt-1">Floral, oriental, warm, sensual</p>
+                        <h3 class="text-base font-bold text-yellow-400 font-playfair">WHITE ORCHID</h3>
+                        <p class="text-[11px] text-gray-400 mt-1">Floral, oriental, warm, sensual</p>
                     </div>
-                    <div class="mt-3 pt-2.5 border-t border-yellow-600/10 flex justify-between items-center text-xs">
+                    <div class="mt-3 pt-2 border-t border-yellow-600/10 flex justify-between items-center text-xs">
                         <span class="text-yellow-500 font-bold">Rp 40.000</span>
-                        <span class="text-gray-500 text-[10px]">30 ml</span>
+                        <span class="text-gray-500">30 ml</span>
                     </div>
                 </div>
             </div>
 
-            <!-- LADY CHARM -->
             <div class="product-card rounded-xl overflow-hidden flex flex-col cursor-pointer group" onclick="openLightbox('84534.png', 'LADY CHARM', 'Fresh, fruity, floral, playful', 'Women')">
-                <div class="overflow-hidden relative aspect-square bg-neutral-900/50">
-                    <div class="absolute top-2 left-2 bg-yellow-600/90 text-black text-[9px] font-bold px-2 py-0.5 rounded z-10">Favorit</div>
+                <div class="overflow-hidden relative aspect-square bg-neutral-900">
                     <img src="84534.png" alt="LADY CHARM" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-3">
-                        <span class="w-full bg-gold-btn text-black text-xs font-bold py-2.5 rounded-lg text-center shadow-lg">Lihat & Zoom Detail 🔍</span>
-                    </div>
                 </div>
                 <div class="p-4 flex-grow flex flex-col justify-between">
                     <div>
-                        <h3 class="text-base md:text-lg font-bold text-yellow-400 font-playfair truncate">LADY CHARM</h3>
-                        <p class="text-[11px] md:text-xs text-gray-400 mt-1">Fresh, fruity, floral, playful</p>
+                        <h3 class="text-base font-bold text-yellow-400 font-playfair">LADY CHARM</h3>
+                        <p class="text-[11px] text-gray-400 mt-1">Fresh, fruity, floral, playful</p>
                     </div>
-                    <div class="mt-3 pt-2.5 border-t border-yellow-600/10 flex justify-between items-center text-xs">
+                    <div class="mt-3 pt-2 border-t border-yellow-600/10 flex justify-between items-center text-xs">
                         <span class="text-yellow-500 font-bold">Rp 40.000</span>
-                        <span class="text-gray-500 text-[10px]">30 ml</span>
+                        <span class="text-gray-500">30 ml</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Modal Lightbox dengan Fitur Zoom -->
+    <!-- Modal Lightbox Zoom -->
     <div id="lightboxModal" class="fixed inset-0 bg-black/95 z-50 hidden items-center justify-center p-4 backdrop-blur-md">
-        <div class="bg-[#12100c] border border-yellow-600/50 rounded-2xl max-w-md w-full p-6 relative animate-fade-in shadow-[0_0_50px_rgba(191,149,63,0.3)]">
-            <button onclick="closeLightbox()" class="absolute top-4 right-4 text-gray-400 hover:text-white bg-neutral-800 w-8 h-8 rounded-full flex items-center justify-center text-lg font-bold transition z-20">&times;</button>
+        <div class="bg-[#12100c] border border-yellow-600/50 rounded-2xl max-w-md w-full p-6 relative shadow-2xl">
+            <button onclick="closeLightbox()" class="absolute top-4 right-4 text-gray-400 hover:text-white bg-neutral-800 w-8 h-8 rounded-full flex items-center justify-center text-lg font-bold z-20">&times;</button>
             <div class="text-center">
-                <!-- Area Zoom Foto -->
-                <div class="zoom-container mb-4 border border-yellow-600/20 bg-neutral-900/80 p-2">
-                    <img id="lightboxImg" src="" alt="Detail Parfum" class="w-full max-h-[300px] object-contain mx-auto">
+                <div class="zoom-container mb-4 border border-yellow-600/20 bg-neutral-900 p-2">
+                    <img id="lightboxImg" src="" alt="Detail" class="w-full max-h-[280px] object-contain mx-auto">
                 </div>
-                <p class="text-[10px] text-yellow-500 mb-3 tracking-widest uppercase">💡 Arahkan kursor atau sentuh gambar untuk memperbesar (Zoom)</p>
-                <h3 id="lightboxTitle" class="text-2xl font-playfair font-bold text-yellow-400 mb-1"></h3>
-                <p id="lightboxDesc" class="text-xs text-gray-300 mb-6 px-2 leading-relaxed"></p>
-                <button id="lightboxOrderBtn" onclick="" class="w-full bg-gold-btn text-black font-bold py-3.5 rounded-xl transition shadow-lg text-sm tracking-wider uppercase">
+                <p class="text-[10px] text-yellow-500 mb-3 uppercase tracking-wider">💡 Sentuh/arahkan kursor untuk memperbesar</p>
+                <h3 id="lightboxTitle" class="text-xl font-playfair font-bold text-yellow-400 mb-1"></h3>
+                <p id="lightboxDesc" class="text-xs text-gray-300 mb-6"></p>
+                <button id="lightboxOrderBtn" class="w-full bg-gold-btn text-black font-bold py-3 rounded-xl uppercase text-xs tracking-wider shadow-lg">
                     Pesan Varian Ini ✨
                 </button>
             </div>
         </div>
     </div>
 
-    <!-- Formulir Pemesanan Mewah -->
-    <section class="max-w-md mx-auto px-4 mb-16" id="order-section">
-        <div class="bg-gradient-to-b from-[#14120e] to-[#0a0806] p-7 rounded-2xl border border-yellow-600/40 shadow-[0_10px_30px_rgba(0,0,0,0.9)] relative">
-            <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-yellow-600 text-black text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">Secure Order</div>
+    <!-- Formulir Pemesanan -->
+    <section class="max-w-md mx-auto px-4 py-12 mb-12" id="order-section">
+        <div class="bg-gradient-to-b from-[#14120e] to-[#0a0806] p-7 rounded-2xl border border-yellow-600/40 shadow-2xl relative">
             <h2 class="text-2xl font-playfair font-bold text-center mb-6 gold-gradient">Formulir Pesanan</h2>
             
             <form id="orderForm" class="space-y-4">
                 <div>
                     <label class="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-1.5">Nama Lengkap</label>
-                    <input type="text" id="nama" required placeholder="Masukkan nama Anda" class="w-full bg-black/80 border border-yellow-600/20 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-yellow-500 transition">
+                    <input type="text" id="nama" required placeholder="Masukkan nama Anda" class="w-full bg-black/80 border border-yellow-600/20 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-yellow-500">
                 </div>
                 
                 <div>
                     <label class="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-1.5">Alamat Pengiriman</label>
-                    <textarea id="alamat" required rows="3" placeholder="Jalan, No. Rumah, Kecamatan, Kota" class="w-full bg-black/80 border border-yellow-600/20 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-yellow-500 transition"></textarea>
+                    <textarea id="alamat" required rows="3" placeholder="Jalan, No. Rumah, Kecamatan, Kota" class="w-full bg-black/80 border border-yellow-600/20 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-yellow-500"></textarea>
                 </div>
                 
                 <div>
                     <label class="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-1.5">Kategori</label>
-                    <select id="kategori" required class="w-full bg-black/80 border border-yellow-600/20 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-yellow-500 transition" onchange="updateAromaOptions()">
+                    <select id="kategori" required class="w-full bg-black/80 border border-yellow-600/20 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-yellow-500" onchange="updateAromaOptions()">
                         <option value="" disabled selected>-- Pilih Kategori --</option>
                         <option value="Men">Men's Collection</option>
                         <option value="Women">Women's Collection</option>
@@ -442,31 +327,38 @@
 
                 <div>
                     <label class="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-1.5">Pilih Aroma</label>
-                    <select id="aroma" required class="w-full bg-black/80 border border-yellow-600/20 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-yellow-500 transition">
+                    <select id="aroma" required class="w-full bg-black/80 border border-yellow-600/20 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-yellow-500">
                         <option value="" disabled selected>-- Pilih Kategori Terlebih Dahulu --</option>
                     </select>
                 </div>
                 
                 <div>
                     <label class="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-1.5">Jumlah Botol</label>
-                    <input type="number" id="jumlah" min="1" value="1" required class="w-full bg-black/80 border border-yellow-600/20 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-yellow-500 transition">
+                    <input type="number" id="jumlah" min="1" value="1" required class="w-full bg-black/80 border border-yellow-600/20 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-yellow-500">
                 </div>
 
-                <button type="submit" class="w-full bg-gold-btn text-black font-bold py-3.5 rounded-xl mt-4 transition shadow-lg flex items-center justify-center gap-2 text-sm uppercase tracking-wider">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
-                    </svg>
-                    Pesan via WhatsApp
+                <button type="submit" class="w-full bg-gold-btn text-black font-bold py-3.5 rounded-xl mt-4 transition shadow-lg text-xs uppercase tracking-wider">
+                    Pesan via WhatsApp 📱
                 </button>
             </form>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="text-center py-8 border-t border-yellow-600/10 text-gray-500 text-xs tracking-wider">
-        <p class="font-playfair text-sm text-yellow-600 mb-1">3 SIXTY EAU DE PARFUM</p>
-        <p>&copy; 2026 3 SIXTY. All rights reserved.</p>
-    </footer>
+    <!-- Bottom Navigation Bar (Tanpa Menu Peta) -->
+    <nav class="bottom-nav">
+        <a href="#" class="active">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z"/></svg>
+            Rumah
+        </a>
+        <a href="https://wa.me/62895353844848" target="_blank">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326z"/></svg>
+            WhatsApp
+        </a>
+        <a href="https://instagram.com" target="_blank">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.198-.509.333-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.282.11-.705.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.668 2.668 0 1 1 0 5.335 2.668 2.668 0 0 1 0-5.335"/></svg>
+            Instagram
+        </a>
+    </nav>
 
     <script>
         function enterWebsite() {
@@ -478,23 +370,18 @@
         const aromaOptions = {
             "Men": [
                 "AR-ONE (Fresh, maskulin, spicy)", 
-                "RS-ONE (Fruity, fresh, smoky)", 
                 "SIGNATURE (Baccarat Rouge 540 x Creed Aventus)",
-                "MEN'S CLUB (Fresh, clean, manly)", 
-                "BLACK CODE (Fresh, spicy, misterius)", 
-                "ROYAL MAN (Fresh, elegant, woody)"
+                "BLACK CODE (Fresh, spicy, misterius)"
             ],
             "Women": [
-                "BELLA (Floral, feminine, elegant)", 
-                "LADY CHARM (Fresh, fruity, playful)", 
-                "WHITE ORCHID (Floral, oriental, sensual)"
+                "WHITE ORCHID (Floral, oriental, sensual)", 
+                "LADY CHARM (Fresh, fruity, playful)"
             ]
         };
 
         function updateAromaOptions() {
             const kategori = document.getElementById("kategori").value;
             const aromaSelect = document.getElementById("aroma");
-            
             aromaSelect.innerHTML = "";
             
             if (kategori && aromaOptions[kategori]) {
@@ -520,7 +407,6 @@
             document.getElementById("lightboxDesc").textContent = desc;
             
             const fullAromaName = title + " (" + desc + ")";
-            
             const btn = document.getElementById("lightboxOrderBtn");
             btn.onclick = function() {
                 closeLightbox();
@@ -539,34 +425,24 @@
         }
 
         function pilihParfum(kategoriVal, aromaVal) {
-            const kategoriSelect = document.getElementById("kategori");
-            kategoriSelect.value = kategoriVal;
-            
+            document.getElementById("kategori").value = kategoriVal;
             updateAromaOptions();
-            
             setTimeout(() => {
                 document.getElementById("aroma").value = aromaVal;
             }, 50);
-
             document.getElementById("order-section").scrollIntoView({ behavior: 'smooth' });
         }
 
         document.getElementById('orderForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            
             const nama = document.getElementById('nama').value;
             const alamat = document.getElementById('alamat').value;
             const aroma = document.getElementById('aroma').value;
             const jumlah = document.getElementById('jumlah').value;
-            
-            const harga = 40000;
-            const total = harga * jumlah;
+            const total = 40000 * jumlah;
             
             const textWa = `Halo 3 SIXTY, saya ingin memesan parfum:%0A%0ANama: ${nama}%0AAlamat: ${alamat}%0AVarian: ${aroma}%0AJumlah: ${jumlah} Botol%0ATotal Harga: Rp ${total.toLocaleString('id-ID')}%0A%0AMohon info pembayarannya. Terima kasih!`;
-            
-            const nomorWa = '62895353844848';
-            
-            window.open(`https://wa.me/${nomorWa}?text=${textWa}`, '_blank');
+            window.open(`https://wa.me/62895353844848?text=${textWa}`, '_blank');
         });
     </script>
 </body>
