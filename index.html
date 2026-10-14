@@ -10,7 +10,6 @@
         
         body {
             font-family: 'Poppins', sans-serif;
-            /* Latar belakang nuansa cokelat gelap mewah / warm mocha & bronze */
             background: linear-gradient(135deg, #181310 0%, #0d0b0a 50%, #050404 100%);
             color: #f3f4f6;
             overflow-x: hidden;
@@ -50,7 +49,6 @@
             box-shadow: 0 15px 30px rgba(191, 149, 63, 0.2);
         }
 
-        /* Intro Overlay */
         #intro-overlay {
             position: fixed;
             inset: 0;
@@ -62,7 +60,6 @@
             transition: opacity 0.8s ease, visibility 0.8s ease;
         }
 
-        /* Animasi Pop-Up saat tombol ditekan */
         @keyframes popupAnim {
             0% { transform: scale(0.5); opacity: 0; filter: blur(10px); }
             70% { transform: scale(1.05); opacity: 1; filter: blur(0); }
@@ -73,7 +70,6 @@
             animation: popupAnim 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
-        /* Efek Scroll Reveal (Muncul Saat Discroll) */
         .reveal-on-scroll {
             opacity: 0;
             transform: translateY(40px);
@@ -85,7 +81,6 @@
             transform: translateY(0);
         }
 
-        /* Bottom Navigation Style */
         .bottom-nav {
             position: fixed;
             bottom: 0;
@@ -205,6 +200,7 @@
             </div>
             
             <div class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+                <!-- AR-ONE -->
                 <div class="product-card rounded-xl overflow-hidden flex flex-col cursor-pointer group" onclick="openLightbox('84532.png', 'AR-ONE', 'Fresh, maskulin, spicy, elegan', 'Men')">
                     <div class="overflow-hidden relative aspect-square bg-neutral-900">
                         <img src="84532.png" alt="AR-ONE" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
@@ -221,6 +217,7 @@
                     </div>
                 </div>
 
+                <!-- BLACK CODE -->
                 <div class="product-card rounded-xl overflow-hidden flex flex-col cursor-pointer group" onclick="openLightbox('84533.png', 'BLACK CODE', 'Fresh, spicy, warm, misterius', 'Men')">
                     <div class="overflow-hidden relative aspect-square bg-neutral-900">
                         <img src="84533.png" alt="BLACK CODE" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
@@ -237,6 +234,58 @@
                     </div>
                 </div>
 
+                <!-- ROYAL MAN -->
+                <div class="product-card rounded-xl overflow-hidden flex flex-col cursor-pointer group" onclick="openLightbox('85004.jpg', 'ROYAL MAN', 'Fresh, elegant, clean, woody', 'Men')">
+                    <div class="overflow-hidden relative aspect-square bg-neutral-900">
+                        <img src="85004.jpg" alt="ROYAL MAN" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="p-4 flex-grow flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-base font-bold text-yellow-400 font-playfair truncate">ROYAL MAN</h3>
+                            <p class="text-[11px] text-gray-400 mt-1">Fresh, elegant, clean, woody</p>
+                        </div>
+                        <div class="mt-3 pt-2 border-t border-yellow-600/10 flex justify-between items-center text-xs">
+                            <span class="text-yellow-500 font-bold">Rp 45.000</span>
+                            <span class="text-gray-500">30 ml</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MEN'S CLUB -->
+                <div class="product-card rounded-xl overflow-hidden flex flex-col cursor-pointer group" onclick="openLightbox('85009.jpg', 'MEN\'S CLUB', 'Fresh, aromatic, dark chocolate, woody', 'Men')">
+                    <div class="overflow-hidden relative aspect-square bg-neutral-900">
+                        <img src="85009.jpg" alt="MEN'S CLUB" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="p-4 flex-grow flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-base font-bold text-yellow-400 font-playfair truncate">MEN'S CLUB</h3>
+                            <p class="text-[11px] text-gray-400 mt-1">Fresh, aromatic, dark chocolate</p>
+                        </div>
+                        <div class="mt-3 pt-2 border-t border-yellow-600/10 flex justify-between items-center text-xs">
+                            <span class="text-yellow-500 font-bold">Rp 45.000</span>
+                            <span class="text-gray-500">30 ml</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RS - ONE -->
+                <div class="product-card rounded-xl overflow-hidden flex flex-col cursor-pointer group" onclick="openLightbox('85013.jpg', 'RS - ONE', 'Fresh, bold, woody, premium', 'Men')">
+                    <div class="overflow-hidden relative aspect-square bg-neutral-900">
+                        <img src="85013.jpg" alt="RS - ONE" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="p-4 flex-grow flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-base font-bold text-yellow-400 font-playfair">RS - ONE</h3>
+                            <p class="text-[11px] text-gray-400 mt-1">Fresh, bold, woody, premium</p>
+                        </div>
+                        <div class="mt-3 pt-2 border-t border-yellow-600/10 flex justify-between items-center text-xs">
+                            <span class="text-yellow-500 font-bold">Rp 45.000</span>
+                            <span class="text-gray-500">30 ml</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SIGNATURE -->
                 <div class="product-card rounded-xl overflow-hidden flex flex-col cursor-pointer group" onclick="openLightbox('85498.jpg', 'SIGNATURE', 'Baccarat Rouge 540 x Creed Aventus', 'Men')">
                     <div class="overflow-hidden relative aspect-square bg-neutral-900">
                         <img src="85498.jpg" alt="SIGNATURE" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
@@ -408,8 +457,11 @@
         const aromaOptions = {
             "Men": [
                 "AR-ONE (Fresh, maskulin, spicy)", 
-                "SIGNATURE (Baccarat Rouge 540 x Creed Aventus)",
-                "BLACK CODE (Fresh, spicy, misterius)"
+                "BLACK CODE (Fresh, spicy, warm)",
+                "ROYAL MAN (Fresh, elegant, clean)",
+                "MEN'S CLUB (Fresh, aromatic, dark chocolate)",
+                "RS - ONE (Fresh, bold, woody)",
+                "SIGNATURE (Baccarat Rouge 540 x Creed Aventus)"
             ],
             "Women": [
                 "WHITE ORCHID (Floral, oriental, sensual)", 
