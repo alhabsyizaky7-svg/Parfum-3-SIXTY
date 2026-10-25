@@ -29,13 +29,18 @@
         .bottom-footer-nav { background: #121215; border-top: 1px solid rgba(212, 175, 55, 0.2); padding: 15px 0; text-align: center; margin-top: 60px; }
         
         .img-grid-container { display: grid; gap: 3px; padding: 3px; background: #121215; }
-        .img-grid-item { background: #18181b; overflow: hidden; border-radius: 4px; cursor: pointer; display: flex; align-items: center; justify-content: center; height: 170px; transition: opacity 0.2s; }
+        .img-grid-item { background: #18181b; overflow: hidden; border-radius: 4px; cursor: pointer; display: flex; align-items: center; justify-content: center; height: 236px; transition: opacity 0.2s; }
         .img-grid-item:hover { opacity: 0.85; }
-        .img-grid-item img { max-width: 100%; max-height: 100%; object-fit: contain; }
+        .img-grid-item img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
 
-        .img-full-container { position: relative; width: 100%; height: 344px; background: #121215; overflow: hidden; cursor: pointer; display: flex; align-items: center; justify-content: center; }
-        .img-full-container img { max-width: 100%; max-height: 100%; object-fit: contain; transition: transform 0.4s ease; }
+        /* Diperbesar agar foto kaos terlihat besar dan jelas */
+        .img-full-container { position: relative; width: 100%; height: 480px; background: #121215; overflow: hidden; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+        .img-full-container img { width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform 0.4s ease; }
         .img-full-container:hover img { transform: scale(1.03); }
+
+        .perfume-img-container { position: relative; width: 100%; height: 480px; background: #121215; overflow: hidden; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+        .perfume-img-container img { width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform 0.4s ease; }
+        .perfume-img-container:hover img { transform: scale(1.03); }
 
         .zoom-container { overflow: hidden; border-radius: 0.75rem; cursor: zoom-in; position: relative; background: #121215; }
         .zoom-container img { transition: transform 0.3s ease; }
@@ -69,7 +74,7 @@
         </header>
 
         <!-- Hero Section -->
-        <section class="relative min-h-[80vh] flex flex-col items-center justify-center text-center px-4 py-16 bg-cover bg-center" style="background-image: linear-gradient(to bottom, rgba(15,15,17,0.85), rgba(15,15,17,0.95)), url('91947.jpg');">
+        <section class="relative min-h-[80vh] flex flex-col items-center justify-center text-center px-4 py-16 bg-cover bg-center" style="background-image: linear-gradient(to bottom, rgba(15,15,17,0.85), rgba(15,15,17,0.95)), url('92061.png');">
             <div class="max-w-2xl relative z-10 reveal-on-scroll">
                 <div class="inline-block bg-yellow-500/10 border border-yellow-500/30 text-yellow-400 text-[10px] uppercase tracking-widest px-3 py-1 rounded-full mb-4 font-semibold">★ Apparel & Perfume Collection ★</div>
                 <h1 class="text-4xl md:text-6xl font-bold tracking-wide dark-gradient font-playfair mb-4">LUXURY & ELEGANT</h1>
@@ -87,12 +92,12 @@
             
             <div class="grid grid-cols-2 gap-2.5 md:gap-6 max-w-5xl mx-auto">
                 
-                <!-- 1. Pink Edition (Kaos - Multi Grid) -->
+                <!-- 1. Pink Edition (Kaos) -->
                 <div class="product-card">
                     <div class="img-grid-container" style="grid-template-columns: repeat(2, 1fr);">
                         <div class="img-grid-item" onclick="openLightbox('90459.jpg', 'Pink Edition - Model', 'Tampilan Model Pink', 'Kaos')"><img src="90459.jpg" alt="Pink Model"></div>
                         <div class="img-grid-item" onclick="openLightbox('90462.jpg', 'Pink Edition - Detail', 'Tampilan Detail Pink', 'Kaos')"><img src="90462.jpg" alt="Pink Detail"></div>
-                        <div class="img-grid-item" onclick="openLightbox('91941.jpg', 'Pink Edition - Studio', 'Tampilan Studio Pink', 'Kaos')" style="grid-column: span 2;"><img src="91941.jpg" alt="Pink Studio"></div>
+                        <div class="img-grid-item" onclick="openLightbox('91941.jpg', 'Pink Edition - Studio', 'Tampilan Studio Pink', 'Kaos')" style="grid-column: span 2; height: 236px;"><img src="91941.jpg" alt="Pink Studio"></div>
                     </div>
                     <div class="p-3 flex-grow flex flex-col justify-between text-center">
                         <div>
@@ -131,8 +136,9 @@
 
                 <!-- 3. White Edition (Kaos) -->
                 <div class="product-card">
-                    <div class="img-full-container" onclick="openLightbox('91947.jpg', 'White Edition (Kaos)', 'Tampilan Model Kaos Putih', 'Kaos')">
-                        <img src="91947.jpg" alt="White Edition">
+                    <div class="img-grid-container" style="grid-template-columns: repeat(2, 1fr);">
+                        <div class="img-grid-item" onclick="openLightbox('92061.png', 'White Edition - Model', 'Tampilan Model Putih', 'Kaos')"><img src="92061.png" alt="White Model"></div>
+                        <div class="img-grid-item" onclick="openLightbox('91947.jpg', 'White Edition - Studio', 'Tampilan Studio Putih', 'Kaos')"><img src="91947.jpg" alt="White Studio"></div>
                     </div>
                     <div class="p-3 flex-grow flex flex-col justify-between text-center">
                         <div>
@@ -171,8 +177,9 @@
 
                 <!-- 5. Orange Edition (Kaos) -->
                 <div class="product-card">
-                    <div class="img-full-container" onclick="openLightbox('91951.jpg', 'Orange Edition (Kaos)', 'Tampilan Model Kaos Orange', 'Kaos')">
-                        <img src="91951.jpg" alt="Orange Edition">
+                    <div class="img-grid-container" style="grid-template-columns: repeat(2, 1fr);">
+                        <div class="img-grid-item" onclick="openLightbox('91959.jpg', 'Orange Edition - Model', 'Tampilan Model Orange', 'Kaos')"><img src="91959.jpg" alt="Orange Model"></div>
+                        <div class="img-grid-item" onclick="openLightbox('91951.jpg', 'Orange Edition - Studio', 'Tampilan Studio Orange', 'Kaos')"><img src="91951.jpg" alt="Orange Studio"></div>
                     </div>
                     <div class="p-3 flex-grow flex flex-col justify-between text-center">
                         <div>
@@ -189,7 +196,7 @@
                     </div>
                 </div>
 
-                <!-- 6. Navy Edition (Kaos - Multi Grid dengan foto baru 92108.jpg) -->
+                <!-- 6. Navy Edition (Kaos) -->
                 <div class="product-card">
                     <div class="img-grid-container" style="grid-template-columns: repeat(2, 1fr);">
                         <div class="img-grid-item" onclick="openLightbox('92108.jpg', 'Navy Edition - Studio', 'Tampilan Studio Navy', 'Kaos')"><img src="92108.jpg" alt="Navy Studio"></div>
@@ -252,7 +259,7 @@
 
                 <!-- 9. AR-ONE (Parfum) -->
                 <div class="product-card">
-                    <div class="img-full-container" onclick="openLightbox('84532.png', 'AR-ONE Parfum', 'Aroma segar dan elegan.', 'Parfum')">
+                    <div class="perfume-img-container" onclick="openLightbox('84532.png', 'AR-ONE Parfum', 'Aroma segar dan elegan.', 'Parfum')">
                         <img src="84532.png" alt="AR-ONE">
                     </div>
                     <div class="p-3 flex-grow flex flex-col justify-between text-center">
@@ -272,7 +279,7 @@
 
                 <!-- 10. BLACK CODE (Parfum) -->
                 <div class="product-card">
-                    <div class="img-full-container" onclick="openLightbox('84533.png', 'BLACK CODE Parfum', 'Karakter aroma misterius, kuat, dan berkarisma.', 'Parfum')">
+                    <div class="perfume-img-container" onclick="openLightbox('84533.png', 'BLACK CODE Parfum', 'Karakter aroma misterius, kuat, dan berkarisma.', 'Parfum')">
                         <img src="84533.png" alt="BLACK CODE">
                     </div>
                     <div class="p-3 flex-grow flex flex-col justify-between text-center">
@@ -292,7 +299,7 @@
 
                 <!-- 11. LADY CHARM (Parfum) -->
                 <div class="product-card">
-                    <div class="img-full-container" onclick="openLightbox('92464.jpg', 'LADY CHARM Parfum', 'Fresh, Fruity, Floral, Playful', 'Parfum')">
+                    <div class="perfume-img-container" onclick="openLightbox('92464.jpg', 'LADY CHARM Parfum', 'Fresh, Fruity, Floral, Playful', 'Parfum')">
                         <img src="92464.jpg" alt="LADY CHARM">
                     </div>
                     <div class="p-3 flex-grow flex flex-col justify-between text-center">
@@ -313,7 +320,7 @@
 
                 <!-- 12. WHITE ORCHID (Parfum) -->
                 <div class="product-card">
-                    <div class="img-full-container" onclick="openLightbox('92448.jpg', 'WHITE ORCHID Parfum', 'Sensual, Warm, Oriental, Floral', 'Parfum')">
+                    <div class="perfume-img-container" onclick="openLightbox('92448.jpg', 'WHITE ORCHID Parfum', 'Sensual, Warm, Oriental, Floral', 'Parfum')">
                         <img src="92448.jpg" alt="WHITE ORCHID">
                     </div>
                     <div class="p-3 flex-grow flex flex-col justify-between text-center">
@@ -334,7 +341,7 @@
 
                 <!-- 13. ROYAL MAN (Parfum) -->
                 <div class="product-card">
-                    <div class="img-full-container" onclick="openLightbox('85004.jpg', 'ROYAL MAN Parfum', 'Wangi maskulin dan mewah.', 'Parfum')">
+                    <div class="perfume-img-container" onclick="openLightbox('85004.jpg', 'ROYAL MAN Parfum', 'Wangi maskulin dan mewah.', 'Parfum')">
                         <img src="85004.jpg" alt="ROYAL MAN">
                     </div>
                     <div class="p-3 flex-grow flex flex-col justify-between text-center">
@@ -354,7 +361,7 @@
 
                 <!-- 14. RS ONE (Parfum) -->
                 <div class="product-card">
-                    <div class="img-full-container" onclick="openLightbox('85013.jpg', 'RS ONE Parfum', 'Eksklusif dan tahan lama.', 'Parfum')">
+                    <div class="perfume-img-container" onclick="openLightbox('85013.jpg', 'RS ONE Parfum', 'Eksklusif dan tahan lama.', 'Parfum')">
                         <img src="85013.jpg" alt="RS ONE">
                     </div>
                     <div class="p-3 flex-grow flex flex-col justify-between text-center">
@@ -374,7 +381,7 @@
 
                 <!-- 15. SIGNATURE (Parfum) -->
                 <div class="product-card">
-                    <div class="img-full-container" onclick="openLightbox('85498.jpg', 'SIGNATURE Parfum', 'Baccarat Rouge 540 × Creed Aventus', 'Parfum')">
+                    <div class="perfume-img-container" onclick="openLightbox('85498.jpg', 'SIGNATURE Parfum', 'Baccarat Rouge 540 × Creed Aventus', 'Parfum')">
                         <img src="85498.jpg" alt="SIGNATURE">
                     </div>
                     <div class="p-3 flex-grow flex flex-col justify-between text-center">
@@ -395,7 +402,7 @@
 
                 <!-- 16. MEN'S CLUB (Parfum) -->
                 <div class="product-card">
-                    <div class="img-full-container" onclick="openLightbox('85009.jpg', 'MENS CLUB Parfum', 'Fresh, Aromatic, Dark Chocolate, Woody', 'Parfum')">
+                    <div class="perfume-img-container" onclick="openLightbox('85009.jpg', 'MENS CLUB Parfum', 'Fresh, Aromatic, Dark Chocolate, Woody', 'Parfum')">
                         <img src="85009.jpg" alt="MENS CLUB">
                     </div>
                     <div class="p-3 flex-grow flex flex-col justify-between text-center">
@@ -440,7 +447,7 @@
                     </div>
                     <div>
                         <label class="block text-xs font-semibold uppercase tracking-wider text-yellow-500 mb-1.5">Pilihan Varian / Warna & Ukuran</label>
-                        <input type="text" id="varian" required placeholder="Contoh: Kaos Navy Size L / Parfum SIGNATURE" class="w-full bg-[#121215] border border-zinc-700 rounded-xl px-4 py-3 text-zinc-100 text-sm focus:outline-none focus:border-yellow-500">
+                        <input type="text" id="varian" required placeholder="Contoh: Kaos White Size L / Parfum BLACK CODE" class="w-full bg-[#121215] border border-zinc-700 rounded-xl px-4 py-3 text-zinc-100 text-sm focus:outline-none focus:border-yellow-500">
                     </div>
                     <div>
                         <label class="block text-xs font-semibold uppercase tracking-wider text-yellow-500 mb-1.5">Jumlah Pcs</label>
