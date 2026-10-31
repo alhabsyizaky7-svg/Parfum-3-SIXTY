@@ -31,15 +31,15 @@
         .img-grid-container { display: grid; gap: 3px; padding: 3px; background: #121215; }
         .img-grid-item { background: #18181b; overflow: hidden; border-radius: 4px; cursor: pointer; display: flex; align-items: center; justify-content: center; height: 236px; transition: opacity 0.2s; }
         .img-grid-item:hover { opacity: 0.85; }
-        .img-grid-item img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+        .img-grid-item img { width: 100%; height: 100%; object-fit: contain; object-position: center; }
 
         /* Diperbesar agar foto kaos terlihat besar dan jelas */
         .img-full-container { position: relative; width: 100%; height: 280px; background: #121215; overflow: hidden; cursor: pointer; display: flex; align-items: center; justify-content: center; }
-        .img-full-container img { width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform 0.4s ease; }
+        .img-full-container img { width: 100%; height: 100%; object-fit: contain; object-position: center; transition: transform 0.4s ease; }
         .img-full-container:hover img { transform: scale(1.03); }
 
         .perfume-img-container { position: relative; width: 100%; height: 280px; background: #121215; overflow: hidden; cursor: pointer; display: flex; align-items: center; justify-content: center; }
-        .perfume-img-container img { width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform 0.4s ease; }
+        .perfume-img-container img { width: 100%; height: 100%; object-fit: contain; object-position: center; transition: transform 0.4s ease; }
         .perfume-img-container:hover img { transform: scale(1.03); }
 
         .zoom-container { overflow: hidden; border-radius: 0.75rem; cursor: zoom-in; position: relative; background: #121215; }
